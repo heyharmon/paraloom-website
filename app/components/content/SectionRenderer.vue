@@ -29,6 +29,9 @@ const componentMap = {
   logoCarousel: defineAsyncComponent(
     () => import("./sections/logoCarouselSection.vue")
   ),
+  pricingTable: defineAsyncComponent(
+    () => import("./sections/PricingTableSection.vue")
+  ),
 };
 
 // Get list of available section types for error messages

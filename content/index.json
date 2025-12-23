@@ -50,6 +50,9 @@
           "description": "See how you stack up against competitors."
         }
       ]
+    },
+    {
+      "type": "pricingTable"
     }
   ]
 }
