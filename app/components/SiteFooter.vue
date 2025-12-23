@@ -13,13 +13,15 @@ useParticleAnimation(canvasRef, {
 
 <template>
   <footer class="bg-neutral-950 text-white relative">
-    <div class="max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8">
+    <div
+      class="w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8"
+    >
       <!-- Desktop Layout -->
       <div class="hidden md:grid grid-cols-12 gap-8">
         <!-- Case Studies Column -->
         <div class="col-span-4">
           <p class="text-white/40 text-sm font-normal mb-2">Case studies</p>
-          <nav class="flex flex-col">
+          <nav class="flex flex-col gap-2">
             <a
               href="#"
               class="text-white text-3xl font-normal leading-tight block transition-opacity duration-200 hover:opacity-70"
@@ -51,7 +53,7 @@ useParticleAnimation(canvasRef, {
         <!-- Navigation Column -->
         <div class="col-span-3">
           <p class="text-white/40 text-sm font-normal mb-2">Navigation</p>
-          <nav class="flex flex-col">
+          <nav class="flex flex-col gap-2">
             <a
               href="#"
               class="text-white text-3xl font-normal leading-tight block transition-opacity duration-200 hover:opacity-70"
