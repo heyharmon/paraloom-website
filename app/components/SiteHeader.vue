@@ -1,0 +1,253 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+// Mobile menu state
+const isMenuOpen = ref(false);
+
+// Menu controls
+const openMenu = () => {
+  isMenuOpen.value = true;
+  document.body.classList.add("overflow-hidden");
+};
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+  document.body.classList.remove("overflow-hidden");
+};
+
+// Keyboard handler for escape key
+const handleKeydown = (e) => {
+  if (e.key === "Escape") closeMenu();
+};
+
+onMounted(() => {
+  document.addEventListener("keydown", handleKeydown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("keydown", handleKeydown);
+  document.body.classList.remove("overflow-hidden");
+});
+
+// Navigation data
+const navLinks = [
+  { label: "Style transfer", href: "#" },
+  { label: "Industries", href: "#" },
+  { label: "Case studies", href: "#" },
+  { label: "Pricing", href: "#" },
+];
+
+const resourceLinks = [
+  { label: "Library", href: "#" },
+  { label: "Help center", href: "#" },
+  { label: "Guide", href: "#" },
+  { label: "Blog", href: "#" },
+  { label: "Use cases", href: "#" },
+];
+</script>
+
+<template>
+  <!-- Navbar -->
+  <header class="bg-white w-full">
+    <div class="mx-auto px-8 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a
+        href="#"
+        class="flex items-center gap-2 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+      >
+        <span class="text-[22px] tracking-tight text-black">paraloom.ai</span>
+      </a>
+
+      <!-- Desktop Nav (hidden on mobile) -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <a
+          v-for="link in navLinks"
+          :key="link.label"
+          :href="link.href"
+          class="text-sm text-black transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+        >
+          {{ link.label }}
+        </a>
+
+        <!-- Resources Dropdown -->
+        <div class="group relative">
+          <button
+            class="text-sm text-black flex items-center gap-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >
+            Resources
+            <svg
+              class="w-3 h-3 transition-transform duration-150 ease-out group-hover:rotate-180"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.5 4.5L6 8L9.5 4.5"
+                stroke="#8A8A8A"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div
+            class="absolute top-full left-0 mt-2 w-52 bg-stone-100 rounded-xl p-2 shadow-lg opacity-0 -translate-y-1 pointer-events-none transition-all duration-150 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-hover:delay-75"
+          >
+            <a
+              v-for="resource in resourceLinks"
+              :key="resource.label"
+              :href="resource.href"
+              class="block px-3 py-2.5 text-sm text-black rounded-lg transition-colors duration-100 ease-out hover:bg-gray-200 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+            >
+              {{ resource.label }}
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Desktop Buttons (hidden on mobile) -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a
+          href="#"
+          class="text-sm text-black transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >Log in</a
+        >
+        <a
+          href="#"
+          class="bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-orange-700 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >Start for free</a
+        >
+      </div>
+
+      <!-- Mobile Buttons -->
+      <div class="flex lg:hidden items-center gap-3">
+        <a
+          href="#"
+          class="bg-orange-600 text-white text-sm font-medium px-3.5 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-orange-700 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >Join</a
+        >
+        <button
+          class="p-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          aria-label="Open menu"
+          @click="openMenu"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12H21"
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M3 6H21"
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M3 18H21"
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="fixed inset-0 bg-black/25 z-40 lg:hidden transition-opacity duration-200 ease-out"
+    :class="
+      isMenuOpen
+        ? 'opacity-100 pointer-events-auto'
+        : 'opacity-0 pointer-events-none'
+    "
+    @click="closeMenu"
+  ></div>
+
+  <!-- Mobile Menu Panel -->
+  <div
+    class="fixed top-0 right-0 w-4/5 max-w-md h-full bg-white z-50 lg:hidden overflow-y-auto transition-transform duration-300 ease-out"
+    :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
+  >
+    <!-- Mobile Header -->
+    <div
+      class="flex items-center justify-between px-6 h-16 border-b border-gray-100"
+    >
+      <span class="text-lg font-semibold tracking-tight text-black"
+        >exactly.ai</span
+      >
+      <button
+        class="p-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+        aria-label="Close menu"
+        @click="closeMenu"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6L6 18"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M6 6L18 18"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Links -->
+    <nav class="px-6 py-6">
+      <div class="flex flex-col gap-5">
+        <a
+          v-for="link in navLinks"
+          :key="link.label"
+          :href="link.href"
+          class="text-base text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+        >
+          {{ link.label }}
+        </a>
+        <a
+          href="#"
+          class="text-base text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >Log in</a
+        >
+      </div>
+
+      <!-- Resources Section -->
+      <div class="mt-8">
+        <span class="text-xs text-gray-500 uppercase tracking-wide"
+          >Resources</span
+        >
+        <div class="flex flex-col gap-4 mt-4">
+          <a
+            v-for="resource in resourceLinks"
+            :key="resource.label"
+            :href="resource.href"
+            class="text-base text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          >
+            {{ resource.label }}
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</template>

@@ -1,0 +1,55 @@
+{
+  "title": "Welcome to Your Website",
+  "description": "A modern, professional website built with Nuxt. Customize this content to match your business, service, or project.",
+  "layout": "default",
+  "sections": [
+    {
+      "type": "homepageHero",
+      "headlineBefore": "The next billion financial decisions will start on",
+      "platforms": [
+        {
+          "logo": "/logos/logo-chatgpt.svg",
+          "name": "ChatGPT.",
+          "alt": "ChatGPT logo"
+        },
+        {
+          "logo": "/logos/logo-perplexity.svg",
+          "name": "Perplexity.",
+          "alt": "Perplexity logo"
+        },
+        {
+          "logo": "/logos/logo-gemini.svg",
+          "name": "Gemini.",
+          "alt": "Gemini logo"
+        }
+      ],
+      "cycleInterval": 4000,
+      "subheadline": "Paraloom helps FI's measure and improve how AI assistants see them—so you're found when members need you most."
+    },
+    {
+      "type": "logoCarousel",
+      "headline": "Trusted by hundreds of FI's, globally"
+    },
+    {
+      "type": "homepageCaseStudies"
+    },
+    {
+      "type": "features",
+      "title": "Everything your bank or credit union needs to improve AI visibility",
+      "items": [
+        {
+          "title": "Optimize Visibility",
+          "description": "Write optimized articles to improve visibility in LLM responses."
+        },
+        {
+          "title": "Track Mentions",
+          "description": "Monitor your brand's visibility in LLM responses."
+        },
+        {
+          "title": "Benchmark Competitors",
+          "description": "See how you stack up against competitors."
+        }
+      ]
+    }
+  ]
+}
