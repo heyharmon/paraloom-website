@@ -111,32 +111,32 @@ useParticleAnimation(canvasRef, {
           <nav class="flex flex-col">
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Northwest Preferred FCU</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Lone Star Credit Union</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >HFS Federal Credit Union</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >On Tap Credit Union</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Zing Credit Union</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >More</a
             >
           </nav>
@@ -148,17 +148,17 @@ useParticleAnimation(canvasRef, {
           <nav class="flex flex-col">
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Pricing</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Log in</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Register</a
             >
           </nav>
@@ -167,20 +167,20 @@ useParticleAnimation(canvasRef, {
         <!-- Policies -->
         <div class="mb-12">
           <p class="text-white/40 text-xs font-normal mb-3">Policies</p>
-          <nav class="flex flex-col">
+          <nav class="flex flex-col gap-1">
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white/60 text-xs font-normal leading-relaxed block transition-opacity duration-200 hover:opacity-70"
               >Terms of Service</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white/60 text-xs font-normal leading-relaxed block transition-opacity duration-200 hover:opacity-70"
               >Privacy Policy</a
             >
             <a
               href="#"
-              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              class="text-white/60 text-xs font-normal leading-relaxed block transition-opacity duration-200 hover:opacity-70"
               >Cookie Policy</a
             >
           </nav>
@@ -199,7 +199,7 @@ useParticleAnimation(canvasRef, {
 
         <!-- Bottom Bar - below animation -->
         <div
-          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 px-4 md:px-6 pt-4 pb-2"
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 px-6 md:px-10 pt-4 pb-2"
         >
           <p class="text-white/40 text-xs">
             © Paraloom 2025. All rights reserved.

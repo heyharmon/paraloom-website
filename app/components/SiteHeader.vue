@@ -45,7 +45,7 @@ const resourceLinks = [
 <template>
   <!-- Navbar -->
   <header class="bg-white w-full">
-    <div class="mx-auto px-8 py-4 flex items-center justify-between">
+    <div class="mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a
         href="#"
