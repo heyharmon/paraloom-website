@@ -39,7 +39,7 @@
       <!-- Right Column - Sticky Card -->
       <div class="flex-1 sticky top-[15vh]">
         <div
-          class="relative bg-gray-100 rounded-[32px] aspect-[4/3] min-h-[520px]"
+          class="relative bg-slate-100 rounded-[32px] aspect-[4/3] min-h-[520px]"
         >
           <div
             v-for="(feature, index) in features"

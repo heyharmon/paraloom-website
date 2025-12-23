@@ -115,7 +115,7 @@ onUnmounted(() => {
         <CardsAnimation
           :embedded="true"
           :progress="scrollProgress"
-          container-class="bg-gray-100 rounded-[32px] aspect-[4/3] min-h-[520px]"
+          container-class="bg-slate-100 rounded-[32px] aspect-[4/3] min-h-[520px]"
         />
       </div>
     </div>

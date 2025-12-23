@@ -90,13 +90,13 @@ useHead({
       v-else
       class="flex flex-col items-center justify-center min-h-[60vh] px-6"
     >
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Page Not Found</h1>
-      <p class="text-lg text-gray-600 mb-8">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Page Not Found</h1>
+      <p class="text-lg text-slate-600 mb-8">
         The page you're looking for doesn't exist.
       </p>
       <NuxtLink
         to="/"
-        class="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+        class="px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors"
       >
         Go Home
       </NuxtLink>
@@ -105,13 +105,13 @@ useHead({
     <!-- Error boundary fallback -->
     <template #error="{ error }">
       <div class="flex flex-col items-center justify-center min-h-[60vh] px-6">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-4xl font-bold text-slate-900 mb-4">
           Something went wrong
         </h1>
-        <p class="text-lg text-gray-600 mb-8">{{ error.message }}</p>
+        <p class="text-lg text-slate-600 mb-8">{{ error.message }}</p>
         <NuxtLink
           to="/"
-          class="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+          class="px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors"
         >
           Go Home
         </NuxtLink>

@@ -38,7 +38,7 @@ const buttonClasses = computed(() => {
 
   const variantClasses = {
     primary: "bg-[#884dff] text-white hover:bg-[#6d3dcc]",
-    secondary: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200",
+    secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200",
   };
 
   const disabledClasses = props.disabled

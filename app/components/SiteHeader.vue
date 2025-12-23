@@ -94,7 +94,7 @@ const resourceLinks = [
               v-for="resource in resourceLinks"
               :key="resource.label"
               :href="resource.href"
-              class="block px-3 py-2.5 text-sm text-black rounded-lg transition-colors duration-100 ease-out hover:bg-gray-200 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+              class="block px-3 py-2.5 text-sm text-black rounded-lg transition-colors duration-100 ease-out hover:bg-slate-200 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
             >
               {{ resource.label }}
             </a>
@@ -121,7 +121,7 @@ const resourceLinks = [
         <a
           href="#"
           class="bg-[#884dff] text-white text-sm font-medium px-3.5 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-[#6d3dcc] focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
-          >Join</a
+          >Start</a
         >
         <button
           class="p-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
@@ -179,9 +179,7 @@ const resourceLinks = [
     <div
       class="flex items-center justify-between px-6 h-16 border-b border-gray-100"
     >
-      <span class="text-lg font-semibold tracking-tight text-black"
-        >exactly.ai</span
-      >
+      <span class="text-lg tracking-tight text-black">paraloom.ai</span>
       <button
         class="p-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
         aria-label="Close menu"
@@ -217,20 +215,20 @@ const resourceLinks = [
           v-for="link in navLinks"
           :key="link.label"
           :href="link.href"
-          class="text-base text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          class="text-2xl text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
         >
           {{ link.label }}
         </a>
         <a
           href="#"
-          class="text-base text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          class="text-2xl text-black transition-opacity duration-100 ease-out active:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
           >Log in</a
         >
       </div>
 
       <!-- Resources Section -->
       <div class="mt-8">
-        <span class="text-xs text-gray-500 uppercase tracking-wide"
+        <span class="text-xs text-slate-500 uppercase tracking-wide"
           >Resources</span
         >
         <div class="flex flex-col gap-4 mt-4">

@@ -12,7 +12,7 @@ useParticleAnimation(canvasRef, {
 </script>
 
 <template>
-  <footer class="bg-neutral-950 text-white relative">
+  <footer class="bg-slate-950 text-white relative">
     <div
       class="w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8"
     >

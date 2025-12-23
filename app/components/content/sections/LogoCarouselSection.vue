@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
 <template>
   <section class="w-full max-w-screen-2xl mx-auto px-2 pb-20 lg:pb-32 bg-white">
     <div class="flex justify-center mb-10 pt-10">
-      <p class="text-xs text-center font-sans text-neutral-400">
+      <p class="text-xs text-center font-sans text-slate-400">
         {{ headline }}
       </p>
     </div>
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
           <li
             v-for="(logo, index) in logos"
             :key="`set1-${index}`"
-            class="shrink-0 flex items-center justify-center text-gray-500"
+            class="shrink-0 flex items-center justify-center text-slate-500"
           >
             <span>{{ logo.name }}</span>
           </li>
@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
           <li
             v-for="(logo, index) in logos"
             :key="`set2-${index}`"
-            class="shrink-0 flex items-center justify-center text-gray-500"
+            class="shrink-0 flex items-center justify-center text-slate-500"
           >
             <span>{{ logo.name }}</span>
           </li>

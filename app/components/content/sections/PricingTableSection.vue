@@ -97,11 +97,11 @@ const pricingPlans = [
         <!-- Title -->
         <h2 class="text-center">
           <span
-            class="block text-4xl md:text-5xl font-medium text-gray-900 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
             >Get started for free</span
           >
           <span
-            class="block text-4xl md:text-5xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-400 tracking-tight"
             >and see the possibilities</span
           >
         </h2>
@@ -225,7 +225,7 @@ const pricingPlans = [
 
           <!-- Title & Subtitle -->
           <div class="mb-2">
-            <h3 class="text-xl font-medium text-gray-900">
+            <h3 class="text-xl font-medium text-slate-900">
               {{ plan.title }}
             </h3>
             <p class="text-[14px] text-[rgba(64,64,64,0.6)]">
@@ -235,7 +235,7 @@ const pricingPlans = [
 
           <!-- Price -->
           <div class="mb-2">
-            <span class="text-4xl font-medium text-gray-900">{{
+            <span class="text-4xl font-medium text-slate-900">{{
               billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice
             }}</span>
             <span class="text-[16px] text-[rgba(64,64,64,0.6)]">{{
@@ -266,7 +266,7 @@ const pricingPlans = [
           </ul>
 
           <!-- Divider -->
-          <div class="dashed-divider w-full mb-6"></div>
+          <div class="border-b border-slate-200 w-full mb-6"></div>
 
           <!-- Secondary Features List -->
           <ul class="flex flex-col gap-[10px] mb-8">
@@ -298,14 +298,6 @@ const pricingPlans = [
 </template>
 
 <style scoped>
-/* Dashed divider line */
-.dashed-divider {
-  background-image: linear-gradient(to right, #1e1e1e 50%, transparent 50%);
-  background-size: 8px 1px;
-  background-repeat: repeat-x;
-  height: 1px;
-}
-
 /* Underline dashed style for secondary links */
 .dashed-underline {
   text-decoration: underline;

@@ -9,7 +9,7 @@ const props = defineProps({
 // Split title for two-tone effect
 const titleParts = computed(() => {
   if (!props.title) return { first: "", second: "" };
-  
+
   // Split at "to improve" if it exists, otherwise split at a reasonable point
   const splitIndex = props.title.indexOf(" to improve");
   if (splitIndex > 0) {
@@ -18,7 +18,7 @@ const titleParts = computed(() => {
       second: props.title.substring(splitIndex + 1), // +1 to skip the space
     };
   }
-  
+
   // Fallback: split roughly in the middle
   const words = props.title.split(" ");
   const midPoint = Math.ceil(words.length / 2);
@@ -34,16 +34,13 @@ const titleParts = computed(() => {
     <div class="max-w-screen-2xl mx-auto">
       <!-- Section Header -->
       <div class="flex flex-col items-center gap-6 mb-14">
-        <h2
-          v-if="title"
-          class="text-center"
-        >
+        <h2 v-if="title" class="text-center">
           <span
-            class="block text-4xl md:text-5xl font-medium text-gray-900 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
             >{{ titleParts.first }}</span
           >
           <span
-            class="block text-4xl md:text-5xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-400 tracking-tight"
             >{{ titleParts.second }}</span
           >
         </h2>
@@ -54,14 +51,14 @@ const titleParts = computed(() => {
         <div
           v-for="(item, index) in items"
           :key="index"
-          class="rounded-3xl bg-gray-50 p-10"
+          class="rounded-3xl bg-slate-50 p-10"
         >
           <!-- Checkmark Icon -->
           <div
-            class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mb-10"
+            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 mb-10"
           >
             <svg
-              class="w-4 h-4 text-gray-600"
+              class="w-4 h-4 text-slate-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -76,10 +73,10 @@ const titleParts = computed(() => {
           </div>
 
           <div class="flex-1">
-            <h3 class="text-lg text-gray-900 mb-1.5">
+            <h3 class="text-lg text-slate-900 mb-1.5">
               {{ item.title }}
             </h3>
-            <p class="text-sm text-gray-600 leading-relaxed">
+            <p class="text-sm text-slate-600 leading-relaxed">
               {{ item.description }}
             </p>
           </div>

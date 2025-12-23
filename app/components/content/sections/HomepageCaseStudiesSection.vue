@@ -4,11 +4,11 @@
     <div class="flex flex-col items-center gap-6 mb-24">
       <h2 class="text-center">
         <span
-          class="block text-4xl md:text-5xl font-medium text-gray-900 tracking-tight"
+          class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
           >Real test results</span
         >
         <span
-          class="block text-4xl md:text-5xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
+          class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-400 tracking-tight"
           >see what works for AI visibility</span
         >
       </h2>
@@ -36,23 +36,23 @@
           </div>
 
           <!-- Client Name & Topic -->
-          <!-- <h3 class="text-xl font-medium text-gray-900 mb-4">
+          <!-- <h3 class="text-xl font-medium text-slate-900 mb-4">
             {{ study.client }}
           </h3> -->
 
           <!-- Description -->
-          <p class="text-base leading-relaxed text-gray-600 mb-8">
+          <p class="text-base leading-relaxed text-slate-600 mb-8">
             {{ study.description }}
           </p>
 
           <!-- Result Highlight - Before/After -->
           <div class="mb-8">
             <div class="flex items-baseline gap-3 mb-1">
-              <span class="text-4xl font-medium leading-none text-gray-300">
+              <span class="text-4xl font-medium leading-none text-slate-400">
                 {{ study.resultBefore }}{{ study.resultUnit }}
               </span>
               <svg
-                class="w-6 h-6 text-gray-300"
+                class="w-6 h-6 text-slate-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -64,11 +64,11 @@
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-              <span class="text-5xl font-medium leading-none text-gray-900">
+              <span class="text-5xl font-medium leading-none text-slate-900">
                 {{ study.resultValue }}{{ study.resultUnit }}
               </span>
             </div>
-            <p class="text-sm text-gray-400">
+            <p class="text-sm text-slate-400">
               {{ study.resultLabel }}
             </p>
           </div>
@@ -76,7 +76,7 @@
           <!-- CTA Link -->
           <NuxtLink
             :to="study.link"
-            class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 group"
+            class="inline-flex items-center gap-2 text-sm font-medium text-slate-900 group"
           >
             <span
               class="border-b border-gray-900 pb-0.5 group-hover:border-gray-400 transition-colors"
@@ -137,7 +137,7 @@
                     class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
                   >
                     <p
-                      class="text-sm leading-relaxed text-gray-900 font-normal"
+                      class="text-sm leading-relaxed text-slate-900 font-normal"
                     >
                       {{ study.prompt }}
                     </p>
@@ -163,7 +163,7 @@
                     class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
                   >
                     <p
-                      class="text-sm leading-relaxed text-gray-900 font-normal"
+                      class="text-sm leading-relaxed text-slate-900 font-normal"
                     >
                       {{ study.response }}
                     </p>
@@ -243,7 +243,7 @@
                     class="backdrop-blur-md bg-white/60 rounded-2xl px-6 py-4 shadow-2xl border border-white/50 max-w-full"
                   >
                     <p
-                      class="text-xl leading-relaxed text-gray-900 font-normal"
+                      class="text-xl leading-relaxed text-slate-900 font-normal"
                     >
                       <span class="typing-content">{{
                         activeIndex === index ? displayedPrompt : ""
@@ -282,7 +282,7 @@
                     class="backdrop-blur-md bg-white/60 rounded-2xl px-6 py-4 shadow-2xl border border-white/50 max-w-full"
                   >
                     <p
-                      class="text-lg leading-relaxed text-gray-900 font-normal"
+                      class="text-lg leading-relaxed text-slate-900 font-normal"
                     >
                       <span class="typing-content">{{
                         activeIndex === index ? displayedResponse : ""

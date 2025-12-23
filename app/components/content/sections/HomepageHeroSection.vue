@@ -38,7 +38,7 @@ const props = defineProps({
   },
   primaryButtonHref: {
     type: String,
-    default: "https://threads.exactly.ai/signin?action=create",
+    default: "",
   },
   secondaryButtonText: {
     type: String,
@@ -99,7 +99,7 @@ onUnmounted(() => {
     class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 pt-48 pb-32 gap-6"
   >
     <h1
-      class="text-center text-neutral-900 text-5xl md:text-6xl font-medium leading-tight tracking-tight"
+      class="text-center text-slate-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
     >
       {{ headlineBefore }}
       <span
@@ -117,7 +117,7 @@ onUnmounted(() => {
       <template v-if="headlineAfter">{{ headlineAfter }}</template>
     </h1>
 
-    <p class="max-w-2xl text-xl text-neutral-400 text-center">
+    <p class="max-w-2xl text-xl text-slate-400 text-center">
       {{ subheadline }}
     </p>
 
