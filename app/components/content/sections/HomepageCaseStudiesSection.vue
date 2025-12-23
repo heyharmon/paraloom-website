@@ -117,7 +117,9 @@
                 <div
                   class="flex flex-col items-start user-message"
                   :class="{
-                    'message-visible': mobileAnimatedIndices.has(index),
+                    'message-visible':
+                      mobileDisplayedPrompts[index] ||
+                      mobileAnimatedIndices.has(index),
                   }"
                 >
                   <div class="mb-2 flex items-center gap-2 text-sm">
@@ -382,7 +384,7 @@
 </style>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, onMounted, onUnmounted, watch, nextTick } from "vue";
 
 const activeIndex = ref(0);
 const featureContents = ref([]);
@@ -403,7 +405,8 @@ const mobileAnimatedIndices = ref(new Set());
 
 let typingInterval = null;
 let responseTimeout = null;
-let mobileTypingIntervals = {}; // Track intervals per mobile card
+let mobilePromptIntervals = {}; // Track prompt intervals per mobile card
+let mobileResponseIntervals = {}; // Track response intervals per mobile card
 let mobileResponseTimeouts = {}; // Track timeouts per mobile card
 
 const caseStudies = [
@@ -532,45 +535,55 @@ const startConversation = (index) => {
 
 // Mobile typing functions
 const typeMobilePrompt = (text, index) => {
-  mobileDisplayedPrompts.value[index] = "";
-  mobileTypingPrompts.value[index] = true;
-  let charIndex = 0;
-
-  if (mobileTypingIntervals[index]) {
-    clearInterval(mobileTypingIntervals[index]);
+  // Clear any existing interval first
+  if (mobilePromptIntervals[index]) {
+    clearInterval(mobilePromptIntervals[index]);
+    delete mobilePromptIntervals[index];
   }
 
-  mobileTypingIntervals[index] = setInterval(() => {
-    if (charIndex < text.length) {
-      mobileDisplayedPrompts.value[index] += text[charIndex];
+  // Reset state
+  mobileDisplayedPrompts.value[index] = "";
+  mobileTypingPrompts.value[index] = true;
+
+  let charIndex = 0;
+  const textLength = text.length;
+
+  mobilePromptIntervals[index] = setInterval(() => {
+    if (charIndex < textLength) {
+      mobileDisplayedPrompts.value[index] = text.substring(0, charIndex + 1);
       charIndex++;
     } else {
-      clearInterval(mobileTypingIntervals[index]);
+      clearInterval(mobilePromptIntervals[index]);
       mobileTypingPrompts.value[index] = false;
-      delete mobileTypingIntervals[index];
+      delete mobilePromptIntervals[index];
     }
   }, 30);
 };
 
 const typeMobileResponse = (text, index) => {
+  // Clear any existing interval first
+  if (mobileResponseIntervals[index]) {
+    clearInterval(mobileResponseIntervals[index]);
+    delete mobileResponseIntervals[index];
+  }
+
+  // Reset state
   mobileDisplayedResponses.value[index] = "";
   mobileTypingResponses.value[index] = true;
   mobileShowResponses.value[index] = true;
+
   let charIndex = 0;
+  const textLength = text.length;
 
-  if (mobileTypingIntervals[index]) {
-    clearInterval(mobileTypingIntervals[index]);
-  }
-
-  mobileTypingIntervals[index] = setInterval(() => {
-    if (charIndex < text.length) {
-      mobileDisplayedResponses.value[index] += text[charIndex];
+  mobileResponseIntervals[index] = setInterval(() => {
+    if (charIndex < textLength) {
+      mobileDisplayedResponses.value[index] = text.substring(0, charIndex + 1);
       charIndex++;
     } else {
-      clearInterval(mobileTypingIntervals[index]);
+      clearInterval(mobileResponseIntervals[index]);
       mobileTypingResponses.value[index] = false;
       mobileAnimatedIndices.value.add(index);
-      delete mobileTypingIntervals[index];
+      delete mobileResponseIntervals[index];
     }
   }, 25);
 };
@@ -581,11 +594,17 @@ const startMobileConversation = (index) => {
   if (!study) return;
 
   // Clear any existing intervals/timeouts for this index
-  if (mobileTypingIntervals[index]) {
-    clearInterval(mobileTypingIntervals[index]);
+  if (mobilePromptIntervals[index]) {
+    clearInterval(mobilePromptIntervals[index]);
+    delete mobilePromptIntervals[index];
+  }
+  if (mobileResponseIntervals[index]) {
+    clearInterval(mobileResponseIntervals[index]);
+    delete mobileResponseIntervals[index];
   }
   if (mobileResponseTimeouts[index]) {
     clearTimeout(mobileResponseTimeouts[index]);
+    delete mobileResponseTimeouts[index];
   }
 
   // If already animated, show everything immediately
@@ -598,11 +617,14 @@ const startMobileConversation = (index) => {
     return;
   }
 
-  // Reset state
-  mobileShowResponses.value[index] = false;
+  // Reset state - ensure we start fresh
+  mobileDisplayedPrompts.value[index] = "";
   mobileDisplayedResponses.value[index] = "";
+  mobileShowResponses.value[index] = false;
+  mobileTypingPrompts.value[index] = false;
+  mobileTypingResponses.value[index] = false;
 
-  // Type prompt first, then response after a delay
+  // Start typing immediately
   typeMobilePrompt(study.prompt, index);
   mobileResponseTimeouts[index] = setTimeout(() => {
     typeMobileResponse(study.response, index);
@@ -616,12 +638,12 @@ watch(activeIndex, (newIndex) => {
 
 let mobileObserver = null;
 
-onMounted(() => {
+onMounted(async () => {
+  // Wait for refs to be set up
+  await nextTick();
+
   // Trigger initial conversation animation (desktop)
   startConversation(0);
-
-  // Trigger initial mobile conversation animation
-  startMobileConversation(0);
 
   const observerOptions = {
     root: null,
@@ -640,25 +662,47 @@ onMounted(() => {
   }, observerOptions);
 
   // Observer for mobile (triggers animations when cards come into view)
+  // Use a more lenient rootMargin so it triggers earlier
   const mobileObserverOptions = {
     root: null,
-    rootMargin: "-20% 0px -20% 0px",
-    threshold: 0,
+    rootMargin: "0px 0px -30% 0px", // Trigger when 30% from bottom of viewport
+    threshold: 0.1, // Trigger when 10% visible
   };
+
+  const mobileAnimating = new Set(); // Track which indices are currently animating
 
   mobileObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = parseInt(entry.target.dataset.index, 10);
-        startMobileConversation(index);
+        // Only start animation if not already animating or completed
+        if (
+          !mobileAnimating.has(index) &&
+          !mobileAnimatedIndices.value.has(index)
+        ) {
+          mobileAnimating.add(index);
+          startMobileConversation(index);
+          // Remove from animating set after animation completes (rough estimate)
+          setTimeout(() => {
+            mobileAnimating.delete(index);
+          }, 5000);
+        }
       }
     });
   }, mobileObserverOptions);
 
+  // Set up observers for all sections
   featureContents.value.forEach((section) => {
     if (section) {
       observer.observe(section);
       mobileObserver.observe(section);
+
+      // Check if first section is already visible (for initial load)
+      const rect = section.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.7 && rect.bottom > 0;
+      if (isVisible && parseInt(section.dataset.index, 10) === 0) {
+        startMobileConversation(0);
+      }
     }
   });
 });
@@ -677,7 +721,10 @@ onUnmounted(() => {
     clearTimeout(responseTimeout);
   }
   // Clean up mobile intervals and timeouts
-  Object.values(mobileTypingIntervals).forEach((interval) => {
+  Object.values(mobilePromptIntervals).forEach((interval) => {
+    if (interval) clearInterval(interval);
+  });
+  Object.values(mobileResponseIntervals).forEach((interval) => {
     if (interval) clearInterval(interval);
   });
   Object.values(mobileResponseTimeouts).forEach((timeout) => {
