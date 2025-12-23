@@ -17,7 +17,7 @@ useParticleAnimation(canvasRef, {
       <!-- Desktop Layout -->
       <div class="hidden md:grid grid-cols-12 gap-8">
         <!-- Case Studies Column -->
-        <div class="col-span-3">
+        <div class="col-span-4">
           <p class="text-white/40 text-sm font-normal mb-2">Case studies</p>
           <nav class="flex flex-col">
             <a
@@ -93,7 +93,7 @@ useParticleAnimation(canvasRef, {
         </div>
 
         <!-- Empty column for spacing -->
-        <div class="col-span-3"></div>
+        <div class="col-span-2"></div>
       </div>
 
       <!-- Mobile Layout -->
