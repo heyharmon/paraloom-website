@@ -9,73 +9,73 @@ const setBillingPeriod = (period) => {
 
 const pricingPlans = [
   {
-    id: "e-studio",
-    title: "e.studio",
-    price: "$108",
-    priceDescription: "/ month per seat,",
-    priceSubtext: "plus 240 credits included",
-    primaryCta: "Start for free",
+    id: "optimize-monthly",
+    title: "Optimize Monthly",
+    subtitle: "Regular optimization",
+    price: "$99",
+    priceDescription: "/mo",
+    primaryCta: "Get Started",
     primaryCtaLink: "#",
-    secondaryCta: "With limited access",
-    secondaryCtaLink: "#",
-    secondaryCtaStyle: "link",
+    highlighted: false,
     features: [
-      "240 credits per month",
-      "On-brand style sharing",
-      "Access to all ai models",
-      "Generative tools",
-      "Fast priority support",
+      { label: "2 articles / month", bold: true },
+      { label: "2 recommendations / month", bold: true },
+      { label: "Prompts: Unlimited", bold: true },
+      { label: "Prompt runs: 500 / month", bold: true },
     ],
-    footerNote: "*Custom, on-brand style not included",
-    footerLink: null,
-    icon: "studio",
-  },
-  {
-    id: "on-brand-style",
-    title: "On-brand style",
-    price: "$275",
-    priceDescription: "/ month per style,",
-    priceSubtext: "for the full version",
-    primaryCta: "Start for free",
-    primaryCtaLink: "#",
-    secondaryCta: "With a demo style",
-    secondaryCtaLink: "#",
-    secondaryCtaStyle: "link",
-    features: [
-      "No watermarks on images",
-      "8K downloads and vectorization",
-      "Commercial usage",
-      "Secure & private training",
-      "Your data protected",
+    secondaryFeatures: [
+      { label: "Prompt groups", value: "Unlimited" },
+      { label: "Users", value: "Unlimited" },
+      { label: "Export prompt responses", value: "Yes" },
+      { label: "Competitor tracking", value: "500" },
     ],
-    footerNote: "*Requires one active e.studio seat",
-    footerLink: null,
     icon: "circle",
   },
   {
-    id: "custom-solutions",
-    title: "Custom solutions",
-    price: null,
-    priceDescription: "Custom package and",
-    priceSubtext: "enterprise features",
-    primaryCta: "Contact us",
+    id: "optimize-weekly",
+    title: "Optimize Weekly",
+    subtitle: "Weekly optimization",
+    price: "$299",
+    priceDescription: "/mo",
+    primaryCta: "Get Started",
     primaryCtaLink: "#",
-    secondaryCta: "Let's discuss your plan",
-    secondaryCtaLink: null,
-    secondaryCtaStyle: "text",
+    highlighted: true,
     features: [
-      "Custom credit allocation",
-      "API access",
-      "Custom built solutions",
-      "SSO",
-      "Premium customer support",
+      { label: "6 articles / month", bold: true },
+      { label: "6 recommendations / month", bold: true },
+      { label: "Prompts: Unlimited", bold: true },
+      { label: "Prompt runs: 1500 / month", bold: true },
     ],
-    footerNote: null,
-    footerLink: {
-      text: "Explore Enterprise solutions",
-      href: "#",
-    },
-    icon: "grid",
+    secondaryFeatures: [
+      { label: "Prompt groups", value: "Unlimited" },
+      { label: "Users", value: "Unlimited" },
+      { label: "Export prompt responses", value: "Yes" },
+      { label: "Competitor tracking", value: "500" },
+    ],
+    icon: "bolt",
+  },
+  {
+    id: "optimize-daily",
+    title: "Optimize Daily",
+    subtitle: "Maximum optimization",
+    price: "$999",
+    priceDescription: "/mo",
+    primaryCta: "Get Started",
+    primaryCtaLink: "#",
+    highlighted: false,
+    features: [
+      { label: "30 articles / month", bold: true },
+      { label: "30 recommendations / month", bold: true },
+      { label: "Prompts: Unlimited", bold: true },
+      { label: "Prompt runs: 5000 / month", bold: true },
+    ],
+    secondaryFeatures: [
+      { label: "Prompt groups", value: "Unlimited" },
+      { label: "Users", value: "Unlimited" },
+      { label: "Export prompt responses", value: "Yes" },
+      { label: "Competitor tracking", value: "500" },
+    ],
+    icon: "bolt",
   },
 ];
 </script>
@@ -139,149 +139,102 @@ const pricingPlans = [
         <div
           v-for="plan in pricingPlans"
           :key="plan.id"
-          class="bg-[#f7f7f7] rounded-[40px] p-8 md:p-10 flex flex-col"
+          class="bg-[#f7f7f7] rounded-[40px] p-8 md:p-10 flex flex-col relative"
         >
+          <!-- Most Popular Badge -->
+          <div
+            v-if="plan.highlighted"
+            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#fb411f] text-white text-[12px] font-medium px-4 py-1.5 rounded-full"
+          >
+            Most Popular
+          </div>
+
           <!-- Icon -->
           <div class="w-[56px] h-[56px] mb-6">
-            <!-- Studio Icon -->
-            <svg
-              v-if="plan.icon === 'studio'"
-              viewBox="0 0 56 56"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 20C12 17.7909 13.7909 16 16 16H28C30.2091 16 32 17.7909 32 20V24C32 26.2091 30.2091 28 28 28H16C13.7909 28 12 26.2091 12 24V20Z"
-                fill="rgba(64, 64, 64, 0.15)"
-              />
-              <path
-                d="M20 32C20 29.7909 21.7909 28 24 28H36C38.2091 28 40 29.7909 40 32V36C40 38.2091 38.2091 40 36 40H24C21.7909 40 20 38.2091 20 36V32Z"
-                fill="rgba(64, 64, 64, 0.25)"
-              />
-            </svg>
             <!-- Circle Icon -->
             <svg
-              v-else-if="plan.icon === 'circle'"
+              v-if="plan.icon === 'circle'"
               viewBox="0 0 56 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle cx="28" cy="28" r="16" fill="rgba(64, 64, 64, 0.2)" />
             </svg>
-            <!-- Grid Icon -->
+            <!-- Bolt Icon -->
             <svg
-              v-else-if="plan.icon === 'grid'"
+              v-else-if="plan.icon === 'bolt'"
               viewBox="0 0 56 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M20 18C20 16.8954 20.8954 16 22 16H26C27.1046 16 28 16.8954 28 18V22C28 23.1046 27.1046 24 26 24H22C20.8954 24 20 23.1046 20 22V18Z"
+                d="M30.5 14L18 30H28L25.5 42L38 26H28L30.5 14Z"
                 fill="rgba(64, 64, 64, 0.25)"
-              />
-              <path
-                d="M30 18C30 16.8954 30.8954 16 32 16H36C37.1046 16 38 16.8954 38 18V22C38 23.1046 37.1046 24 36 24H32C30.8954 24 30 23.1046 30 22V18Z"
-                fill="rgba(64, 64, 64, 0.15)"
-              />
-              <path
-                d="M20 28C20 26.8954 20.8954 26 22 26H26C27.1046 26 28 26.8954 28 28V32C28 33.1046 27.1046 34 26 34H22C20.8954 34 20 33.1046 20 32V28Z"
-                fill="rgba(64, 64, 64, 0.15)"
-              />
-              <path
-                d="M30 28C30 26.8954 30.8954 26 32 26H36C37.1046 26 38 26.8954 38 28V32C38 33.1046 37.1046 34 36 34H32C30.8954 34 30 33.1046 30 32V28Z"
-                fill="rgba(64, 64, 64, 0.25)"
-              />
-            </svg>
-          </div>
-
-          <!-- Title & Price -->
-          <div class="mb-6">
-            <h3 class="text-lg font-medium text-gray-900 mb-2">
-              {{ plan.title }}
-            </h3>
-            <p class="text-[16px] text-[rgba(64,64,64,0.6)] leading-relaxed">
-              <span v-if="plan.price">{{ plan.price }}</span>
-              {{ plan.priceDescription }}<br />
-              {{ plan.priceSubtext }}
-            </p>
-          </div>
-
-          <!-- CTAs -->
-          <div class="flex items-center gap-4 mb-8">
-            <a
-              :href="plan.primaryCtaLink"
-              :class="[
-                'inline-flex items-center justify-center text-white text-[14px] font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity',
-                plan.id === 'custom-solutions'
-                  ? 'bg-[#1e1e1e]'
-                  : 'bg-[#fb411f]',
-              ]"
-            >
-              {{ plan.primaryCta }}
-            </a>
-            <a
-              v-if="plan.secondaryCtaLink && plan.secondaryCtaStyle === 'link'"
-              :href="plan.secondaryCtaLink"
-              class="text-[14px] text-[#1e1e1e] dashed-underline"
-            >
-              {{ plan.secondaryCta }}
-            </a>
-            <span
-              v-else-if="plan.secondaryCtaStyle === 'text'"
-              class="text-[14px] text-[#1e1e1e]"
-            >
-              {{ plan.secondaryCta }}
-            </span>
-          </div>
-
-          <!-- Divider -->
-          <div class="dashed-divider w-full mb-8"></div>
-
-          <!-- Features List -->
-          <ul class="flex flex-col gap-[14px] mb-auto">
-            <li
-              v-for="(feature, index) in plan.features"
-              :key="index"
-              class="flex items-center gap-3"
-            >
-              <span
-                class="w-[5px] h-[5px] rounded-full bg-[#1e1e1e] flex-shrink-0"
-              ></span>
-              <span class="text-[14px] text-[#1e1e1e]">{{ feature }}</span>
-            </li>
-          </ul>
-
-          <!-- Footer Note -->
-          <p
-            v-if="plan.footerNote"
-            class="text-[14px] text-[rgba(64,64,64,0.6)] mt-10"
-          >
-            {{ plan.footerNote }}
-          </p>
-
-          <!-- Footer Link -->
-          <a
-            v-if="plan.footerLink"
-            :href="plan.footerLink.href"
-            class="flex items-center gap-2 text-[14px] text-[rgba(64,64,64,0.6)] mt-10 hover:text-[#1e1e1e] transition-colors"
-          >
-            {{ plan.footerLink.text }}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 4L10 8L6 12"
-                stroke="currentColor"
+                stroke="rgba(64, 64, 64, 0.3)"
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
             </svg>
-          </a>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <div class="mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">
+              {{ plan.title }}
+            </h3>
+            <p class="text-[14px] text-[rgba(64,64,64,0.6)]">
+              {{ plan.subtitle }}
+            </p>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-gray-900">{{
+              plan.price
+            }}</span>
+            <span class="text-[16px] text-[rgba(64,64,64,0.6)]">{{
+              plan.priceDescription
+            }}</span>
+          </div>
+
+          <!-- Primary Features List -->
+          <ul class="flex flex-col gap-[12px] mb-6">
+            <li
+              v-for="(feature, index) in plan.features"
+              :key="index"
+              class="text-[15px] text-[#1e1e1e] font-medium"
+            >
+              {{ feature.label }}
+            </li>
+          </ul>
+
+          <!-- Divider -->
+          <div class="dashed-divider w-full mb-6"></div>
+
+          <!-- Secondary Features List -->
+          <ul class="flex flex-col gap-[10px] mb-8">
+            <li
+              v-for="(feature, index) in plan.secondaryFeatures"
+              :key="index"
+              class="flex items-center justify-between text-[13px]"
+            >
+              <span class="text-[rgba(64,64,64,0.6)]"
+                >{{ feature.label }}:</span
+              >
+              <span class="text-[#1e1e1e]">{{ feature.value }}</span>
+            </li>
+          </ul>
+
+          <!-- CTA -->
+          <div class="mt-auto">
+            <a
+              :href="plan.primaryCtaLink"
+              class="inline-flex items-center justify-center w-full text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#fb411f] hover:opacity-90 transition-opacity"
+            >
+              {{ plan.primaryCta }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
