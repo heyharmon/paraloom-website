@@ -4,6 +4,10 @@ import { ref, onMounted, onUnmounted } from "vue";
 // Mobile menu state
 const isMenuOpen = ref(false);
 
+// Resources dropdown state
+const isResourcesOpen = ref(false);
+const resourcesDropdownRef = ref(null);
+
 // Menu controls
 const openMenu = () => {
   isMenuOpen.value = true;
@@ -15,17 +19,41 @@ const closeMenu = () => {
   document.body.classList.remove("overflow-hidden");
 };
 
+// Resources dropdown controls
+const toggleResources = () => {
+  isResourcesOpen.value = !isResourcesOpen.value;
+};
+
+const closeResources = () => {
+  isResourcesOpen.value = false;
+};
+
+// Click outside handler for resources dropdown
+const handleClickOutside = (event) => {
+  if (
+    resourcesDropdownRef.value &&
+    !resourcesDropdownRef.value.contains(event.target)
+  ) {
+    closeResources();
+  }
+};
+
 // Keyboard handler for escape key
 const handleKeydown = (e) => {
-  if (e.key === "Escape") closeMenu();
+  if (e.key === "Escape") {
+    closeMenu();
+    closeResources();
+  }
 };
 
 onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
+  document.addEventListener("click", handleClickOutside);
 });
 
 onUnmounted(() => {
   document.removeEventListener("keydown", handleKeydown);
+  document.removeEventListener("click", handleClickOutside);
   document.body.classList.remove("overflow-hidden");
 });
 
@@ -66,13 +94,15 @@ const resourceLinks = [
         </a>
 
         <!-- Resources Dropdown -->
-        <div class="group relative">
+        <div ref="resourcesDropdownRef" class="relative">
           <button
+            @click.stop="toggleResources"
             class="text-sm text-black flex items-center gap-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
           >
             Resources
             <svg
-              class="w-3 h-3 transition-transform duration-150 ease-out group-hover:rotate-180"
+              class="w-3 h-3 transition-transform duration-150 ease-out"
+              :class="{ 'rotate-180': isResourcesOpen }"
               viewBox="0 0 12 12"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +118,12 @@ const resourceLinks = [
           </button>
 
           <div
-            class="absolute top-full left-0 mt-2 w-52 bg-stone-100 rounded-xl p-2 shadow-lg opacity-0 -translate-y-1 pointer-events-none transition-all duration-150 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-hover:delay-75"
+            class="absolute top-full left-0 mt-2 w-52 bg-stone-100 rounded-xl p-2 shadow-lg transition-all duration-150 ease-out"
+            :class="
+              isResourcesOpen
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-1 pointer-events-none'
+            "
           >
             <a
               v-for="resource in resourceLinks"
