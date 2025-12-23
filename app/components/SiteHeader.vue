@@ -31,18 +31,14 @@ onUnmounted(() => {
 
 // Navigation data
 const navLinks = [
-  { label: "Style transfer", href: "#" },
-  { label: "Industries", href: "#" },
-  { label: "Case studies", href: "#" },
   { label: "Pricing", href: "#" },
+  { label: "Case Studies", href: "#" },
 ];
 
 const resourceLinks = [
-  { label: "Library", href: "#" },
   { label: "Help center", href: "#" },
-  { label: "Guide", href: "#" },
+  { label: "Guides", href: "#" },
   { label: "Blog", href: "#" },
-  { label: "Use cases", href: "#" },
 ];
 </script>
 

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const billingPeriod = ref("yearly");
+const billingPeriod = ref("monthly");
 
 const setBillingPeriod = (period) => {
   billingPeriod.value = period;
@@ -12,8 +12,11 @@ const pricingPlans = [
     id: "optimize-monthly",
     title: "Optimize Monthly",
     subtitle: "Regular optimization",
-    price: "$99",
-    priceDescription: "/mo",
+    monthlyPrice: "$99",
+    monthlyPriceDescription: "/mo",
+    yearlyPrice: "$990",
+    yearlyPriceDescription: "/year",
+    yearlySavings: "Save $198 (2 months free)",
     primaryCta: "Get Started",
     primaryCtaLink: "#",
     highlighted: false,
@@ -35,8 +38,11 @@ const pricingPlans = [
     id: "optimize-weekly",
     title: "Optimize Weekly",
     subtitle: "Weekly optimization",
-    price: "$299",
-    priceDescription: "/mo",
+    monthlyPrice: "$299",
+    monthlyPriceDescription: "/mo",
+    yearlyPrice: "$2,990",
+    yearlyPriceDescription: "/year",
+    yearlySavings: "Save $598 (2 months free)",
     primaryCta: "Get Started",
     primaryCtaLink: "#",
     highlighted: true,
@@ -58,8 +64,11 @@ const pricingPlans = [
     id: "optimize-daily",
     title: "Optimize Daily",
     subtitle: "Maximum optimization",
-    price: "$999",
-    priceDescription: "/mo",
+    monthlyPrice: "$999",
+    monthlyPriceDescription: "/mo",
+    yearlyPrice: "$9,990",
+    yearlyPriceDescription: "/year",
+    yearlySavings: "Save $1,998 (2 months free)",
     primaryCta: "Get Started",
     primaryCtaLink: "#",
     highlighted: false,
@@ -127,8 +136,8 @@ const pricingPlans = [
 
           <!-- Savings Text -->
           <p class="text-[14px] font-medium">
-            <span class="text-[#fb411f] font-semibold">Save 20%</span>
-            <span class="text-[#1e1e1e]"> on a yearly subscription</span>
+            <span class="text-[#fb411f] font-semibold">2 months free</span>
+            <span class="text-[#1e1e1e]"> when you go yearly</span>
           </p>
         </div>
       </div>
@@ -180,7 +189,7 @@ const pricingPlans = [
 
           <!-- Title & Subtitle -->
           <div class="mb-2">
-            <h3 class="text-xl font-semibold text-gray-900">
+            <h3 class="text-xl font-medium text-gray-900">
               {{ plan.title }}
             </h3>
             <p class="text-[14px] text-[rgba(64,64,64,0.6)]">
@@ -189,14 +198,25 @@ const pricingPlans = [
           </div>
 
           <!-- Price -->
-          <div class="mb-6">
-            <span class="text-4xl font-bold text-gray-900">{{
-              plan.price
+          <div class="mb-2">
+            <span class="text-4xl font-medium text-gray-900">{{
+              billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice
             }}</span>
             <span class="text-[16px] text-[rgba(64,64,64,0.6)]">{{
-              plan.priceDescription
+              billingPeriod === "yearly"
+                ? plan.yearlyPriceDescription
+                : plan.monthlyPriceDescription
             }}</span>
           </div>
+
+          <!-- Savings Badge (yearly only) -->
+          <div
+            v-if="billingPeriod === 'yearly'"
+            class="inline-flex items-center bg-[#e8f5e9] text-[#2e7d32] text-[13px] font-medium px-3 py-1 rounded-full mb-6 w-fit"
+          >
+            {{ plan.yearlySavings }}
+          </div>
+          <div v-else class="mb-6"></div>
 
           <!-- Primary Features List -->
           <ul class="flex flex-col gap-[12px] mb-6">
@@ -230,7 +250,7 @@ const pricingPlans = [
           <div class="mt-auto">
             <a
               :href="plan.primaryCtaLink"
-              class="inline-flex items-center justify-center w-full text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#fb411f] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center justify-center text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#fb411f] hover:opacity-90 transition-opacity"
             >
               {{ plan.primaryCta }}
             </a>
