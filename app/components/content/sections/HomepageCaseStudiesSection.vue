@@ -2,7 +2,7 @@
   <section class="bg-white py-20 lg:pt-24 lg:pb-[160px] px-4 md:px-8">
     <!-- Section Header -->
     <div class="w-full max-w-4xl mx-auto mb-24 text-center">
-      <h2 class="text-3xl md:text-4xl font-medium text-gray-900 tracking-tight">
+      <h2 class="text-4xl md:text-5xl font-medium text-gray-900 tracking-tight">
         We're transparently sharing real test results—so you can see what
         actually works for AI visibility.
       </h2>

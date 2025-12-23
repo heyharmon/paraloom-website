@@ -1,7 +1,31 @@
 <script setup>
-defineProps({
+import { computed } from "vue";
+
+const props = defineProps({
   title: String,
   items: Array,
+});
+
+// Split title for two-tone effect
+const titleParts = computed(() => {
+  if (!props.title) return { first: "", second: "" };
+  
+  // Split at "to improve" if it exists, otherwise split at a reasonable point
+  const splitIndex = props.title.indexOf(" to improve");
+  if (splitIndex > 0) {
+    return {
+      first: props.title.substring(0, splitIndex),
+      second: props.title.substring(splitIndex + 1), // +1 to skip the space
+    };
+  }
+  
+  // Fallback: split roughly in the middle
+  const words = props.title.split(" ");
+  const midPoint = Math.ceil(words.length / 2);
+  return {
+    first: words.slice(0, midPoint).join(" "),
+    second: words.slice(midPoint).join(" "),
+  };
 });
 </script>
 
@@ -9,12 +33,19 @@ defineProps({
   <section class="py-20 px-6">
     <div class="max-w-screen-2xl mx-auto">
       <!-- Section Header -->
-      <div class="text-center mb-14">
+      <div class="flex flex-col items-center gap-6 mb-14">
         <h2
           v-if="title"
-          class="text-3xl md:text-4xl font-medium text-gray-900 tracking-tight"
+          class="text-center"
         >
-          {{ title }}
+          <span
+            class="block text-4xl md:text-5xl font-medium text-gray-900 tracking-tight"
+            >{{ titleParts.first }}</span
+          >
+          <span
+            class="block text-4xl md:text-5xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
+            >{{ titleParts.second }}</span
+          >
         </h2>
       </div>
 

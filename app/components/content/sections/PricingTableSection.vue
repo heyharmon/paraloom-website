@@ -90,11 +90,11 @@ const pricingPlans = [
         <!-- Title -->
         <h2 class="text-center">
           <span
-            class="block text-3xl md:text-4xl font-medium text-gray-900 tracking-tight"
+            class="block text-4xl md:text-5xl font-medium text-gray-900 tracking-tight"
             >Get started for free</span
           >
           <span
-            class="block text-3xl md:text-4xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
+            class="block text-4xl md:text-5xl font-medium text-[rgba(64,64,64,0.28)] tracking-tight"
             >and see the possibilities</span
           >
         </h2>
