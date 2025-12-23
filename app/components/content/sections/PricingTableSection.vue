@@ -109,13 +109,13 @@ const pricingPlans = [
         <!-- Toggle + Savings -->
         <div class="flex flex-col items-center gap-3">
           <!-- Toggle -->
-          <div class="flex bg-[rgba(124,124,124,0.08)] rounded-full p-[4px]">
+          <div class="flex bg-slate-100/10 rounded-full p-1">
             <button
               :class="[
-                'px-5 py-[10px] rounded-full text-[14px] font-medium transition-all',
+                'px-5 py-2.5 rounded-full text-sm font-medium transition-all',
                 billingPeriod === 'yearly'
-                  ? 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#1e1e1e]'
-                  : 'text-[rgba(64,64,64,0.6)] hover:text-[#1e1e1e]',
+                  ? 'bg-white shadow-sm text-slate-900'
+                  : 'text-slate-600 hover:text-slate-900',
               ]"
               @click="setBillingPeriod('yearly')"
             >
@@ -123,10 +123,10 @@ const pricingPlans = [
             </button>
             <button
               :class="[
-                'px-5 py-[10px] rounded-full text-[14px] font-medium transition-all',
+                'px-5 py-2.5 rounded-full text-sm font-medium transition-all',
                 billingPeriod === 'monthly'
-                  ? 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)] text-[#1e1e1e]'
-                  : 'text-[rgba(64,64,64,0.6)] hover:text-[#1e1e1e]',
+                  ? 'bg-white shadow-sm text-slate-900'
+                  : 'text-slate-600 hover:text-slate-900',
               ]"
               @click="setBillingPeriod('monthly')"
             >
@@ -135,9 +135,9 @@ const pricingPlans = [
           </div>
 
           <!-- Savings Text -->
-          <p class="text-[14px] font-medium">
-            <span class="text-[#884dff] font-semibold">2 months free</span>
-            <span class="text-[#1e1e1e]"> when you go yearly</span>
+          <p class="text-sm font-medium">
+            <span class="text-violet-600 font-semibold">2 months free</span>
+            <span class="text-slate-900"> when you go yearly</span>
           </p>
         </div>
       </div>
@@ -148,12 +148,12 @@ const pricingPlans = [
         <div
           v-for="plan in pricingPlans"
           :key="plan.id"
-          class="bg-[#f7f7f7] rounded-[40px] p-8 md:p-10 flex flex-col relative"
+          class="bg-slate-50 rounded-[40px] p-8 md:p-10 flex flex-col relative"
         >
           <!-- Most Popular Badge -->
           <div
             v-if="plan.highlighted"
-            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#884dff] text-white text-[12px] font-medium px-4 py-1.5 rounded-full"
+            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-violet-600 text-white text-xs font-medium px-4 py-1.5 rounded-full"
           >
             Most Popular
           </div>
@@ -167,7 +167,7 @@ const pricingPlans = [
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="28" cy="28" r="16" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="28" cy="28" r="16" fill="rgba(148, 163, 184, 0.3)" />
             </svg>
             <!-- Weekly Icon - 4 circles in a row -->
             <svg
@@ -176,10 +176,10 @@ const pricingPlans = [
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="7" cy="28" r="5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="21" cy="28" r="5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="35" cy="28" r="5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="49" cy="28" r="5" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="7" cy="28" r="5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="21" cy="28" r="5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="35" cy="28" r="5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="49" cy="28" r="5" fill="rgba(148, 163, 184, 0.3)" />
             </svg>
             <!-- Daily Icon - 4 rows of 7 circles -->
             <svg
@@ -189,37 +189,37 @@ const pricingPlans = [
               xmlns="http://www.w3.org/2000/svg"
             >
               <!-- Row 1 -->
-              <circle cx="4" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="12" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="20" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="28" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="36" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="44" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="52" cy="11" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="4" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="12" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="20" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="28" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="36" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="44" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="52" cy="11" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
               <!-- Row 2 -->
-              <circle cx="4" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="12" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="20" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="28" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="36" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="44" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="52" cy="22" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="4" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="12" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="20" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="28" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="36" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="44" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="52" cy="22" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
               <!-- Row 3 -->
-              <circle cx="4" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="12" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="20" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="28" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="36" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="44" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="52" cy="33" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="4" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="12" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="20" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="28" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="36" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="44" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="52" cy="33" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
               <!-- Row 4 -->
-              <circle cx="4" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="12" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="20" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="28" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="36" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="44" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
-              <circle cx="52" cy="44" r="2.5" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="4" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="12" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="20" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="28" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="36" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="44" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
+              <circle cx="52" cy="44" r="2.5" fill="rgba(148, 163, 184, 0.3)" />
             </svg>
           </div>
 
@@ -228,7 +228,7 @@ const pricingPlans = [
             <h3 class="text-xl font-medium text-slate-900">
               {{ plan.title }}
             </h3>
-            <p class="text-[14px] text-[rgba(64,64,64,0.6)]">
+            <p class="text-sm text-slate-600">
               {{ plan.subtitle }}
             </p>
           </div>
@@ -238,7 +238,7 @@ const pricingPlans = [
             <span class="text-4xl font-medium text-slate-900">{{
               billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice
             }}</span>
-            <span class="text-[16px] text-[rgba(64,64,64,0.6)]">{{
+            <span class="text-base text-slate-600">{{
               billingPeriod === "yearly"
                 ? plan.yearlyPriceDescription
                 : plan.monthlyPriceDescription
@@ -248,18 +248,18 @@ const pricingPlans = [
           <!-- Savings Badge (yearly only) -->
           <div
             v-if="billingPeriod === 'yearly'"
-            class="inline-flex items-center bg-[#e8f5e9] text-[#2e7d32] text-[13px] font-medium px-3 py-1 rounded-full mb-6 w-fit"
+            class="inline-flex items-center bg-green-50 text-green-800 text-xs font-medium px-3 py-1 rounded-full mb-6 w-fit"
           >
             {{ plan.yearlySavings }}
           </div>
           <div v-else class="mb-6"></div>
 
           <!-- Primary Features List -->
-          <ul class="flex flex-col gap-[12px] mb-6">
+          <ul class="flex flex-col gap-3 mb-6">
             <li
               v-for="(feature, index) in plan.features"
               :key="index"
-              class="text-[15px] text-[#1e1e1e] font-medium"
+              class="text-base text-slate-900 font-medium"
             >
               {{ feature.label }}
             </li>
@@ -269,16 +269,14 @@ const pricingPlans = [
           <div class="border-b border-slate-200 w-full mb-6"></div>
 
           <!-- Secondary Features List -->
-          <ul class="flex flex-col gap-[10px] mb-8">
+          <ul class="flex flex-col gap-2.5 mb-8">
             <li
               v-for="(feature, index) in plan.secondaryFeatures"
               :key="index"
-              class="flex items-center justify-between text-[13px]"
+              class="flex items-center justify-between text-xs"
             >
-              <span class="text-[rgba(64,64,64,0.6)]"
-                >{{ feature.label }}:</span
-              >
-              <span class="text-[#1e1e1e]">{{ feature.value }}</span>
+              <span class="text-slate-600">{{ feature.label }}:</span>
+              <span class="text-slate-900">{{ feature.value }}</span>
             </li>
           </ul>
 
@@ -286,7 +284,7 @@ const pricingPlans = [
           <div class="mt-auto">
             <a
               :href="plan.primaryCtaLink"
-              class="inline-flex items-center justify-center text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#884dff] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center justify-center text-white text-sm font-medium px-6 py-3 rounded-full bg-violet-600 hover:bg-violet-700 transition-colors"
             >
               {{ plan.primaryCta }}
             </a>
