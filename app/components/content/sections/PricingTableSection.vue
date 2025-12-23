@@ -32,7 +32,7 @@ const pricingPlans = [
       { label: "Export prompt responses", value: "Yes" },
       { label: "Competitor tracking", value: "500" },
     ],
-    icon: "circle",
+    icon: "monthly",
   },
   {
     id: "optimize-weekly",
@@ -58,7 +58,7 @@ const pricingPlans = [
       { label: "Export prompt responses", value: "Yes" },
       { label: "Competitor tracking", value: "500" },
     ],
-    icon: "bolt",
+    icon: "weekly",
   },
   {
     id: "optimize-daily",
@@ -84,7 +84,7 @@ const pricingPlans = [
       { label: "Export prompt responses", value: "Yes" },
       { label: "Competitor tracking", value: "500" },
     ],
-    icon: "bolt",
+    icon: "daily",
   },
 ];
 </script>
@@ -160,30 +160,66 @@ const pricingPlans = [
 
           <!-- Icon -->
           <div class="w-[56px] h-[56px] mb-6">
-            <!-- Circle Icon -->
+            <!-- Monthly Icon - Single Circle -->
             <svg
-              v-if="plan.icon === 'circle'"
+              v-if="plan.icon === 'monthly'"
               viewBox="0 0 56 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle cx="28" cy="28" r="16" fill="rgba(64, 64, 64, 0.2)" />
             </svg>
-            <!-- Bolt Icon -->
+            <!-- Weekly Icon - 4 circles in a row -->
             <svg
-              v-else-if="plan.icon === 'bolt'"
+              v-else-if="plan.icon === 'weekly'"
               viewBox="0 0 56 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M30.5 14L18 30H28L25.5 42L38 26H28L30.5 14Z"
-                fill="rgba(64, 64, 64, 0.25)"
-                stroke="rgba(64, 64, 64, 0.3)"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <circle cx="10" cy="28" r="6" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="24" cy="28" r="6" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="38" cy="28" r="6" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="52" cy="28" r="6" fill="rgba(64, 64, 64, 0.2)" />
+            </svg>
+            <!-- Daily Icon - 4 rows of 7 circles -->
+            <svg
+              v-else-if="plan.icon === 'daily'"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Row 1 -->
+              <circle cx="7" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="15" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="23" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="31" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="39" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="47" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="55" cy="14" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <!-- Row 2 -->
+              <circle cx="7" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="15" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="23" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="31" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="39" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="47" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="55" cy="24" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <!-- Row 3 -->
+              <circle cx="7" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="15" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="23" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="31" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="39" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="47" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="55" cy="34" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <!-- Row 4 -->
+              <circle cx="7" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="15" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="23" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="31" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="39" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="47" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
+              <circle cx="55" cy="44" r="3" fill="rgba(64, 64, 64, 0.2)" />
             </svg>
           </div>
 

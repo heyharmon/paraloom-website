@@ -47,6 +47,11 @@ useParticleAnimation(canvasRef, {
               class="text-white text-3xl font-normal leading-tight block transition-opacity duration-200 hover:opacity-70"
               >Zing Credit Union</a
             >
+            <a
+              href="#"
+              class="text-white text-3xl font-normal leading-tight block transition-opacity duration-200 hover:opacity-70"
+              >More</a
+            >
           </nav>
         </div>
 
@@ -128,6 +133,11 @@ useParticleAnimation(canvasRef, {
               href="#"
               class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
               >Zing Credit Union</a
+            >
+            <a
+              href="#"
+              class="text-white text-base font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
+              >More</a
             >
           </nav>
         </div>
