@@ -109,7 +109,7 @@ const pricingPlans = [
         <!-- Toggle + Savings -->
         <div class="flex flex-col items-center gap-3">
           <!-- Toggle -->
-          <div class="flex bg-slate-100/10 rounded-full p-1">
+          <div class="flex bg-slate-100 rounded-full p-1">
             <button
               :class="[
                 'px-5 py-2.5 rounded-full text-sm font-medium transition-all',

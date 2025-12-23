@@ -51,11 +51,11 @@ const titleParts = computed(() => {
         <div
           v-for="(item, index) in items"
           :key="index"
-          class="rounded-3xl bg-slate-50 p-10"
+          class="rounded-3xl bg-slate-100 p-10"
         >
           <!-- Checkmark Icon -->
           <div
-            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 mb-10"
+            class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mb-10"
           >
             <svg
               class="w-4 h-4 text-slate-600"

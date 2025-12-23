@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-20 lg:pt-24 lg:pb-[160px] px-4 md:px-8">
+  <section class="bg-white py-20 lg:pt-24 lg:pb-[160px] px-6">
     <!-- Section Header -->
     <div class="flex flex-col items-center gap-6 mb-24">
       <h2 class="text-center">
@@ -31,7 +31,7 @@
             <img
               :src="study.logo"
               :alt="study.client + ' logo'"
-              class="h-14 w-auto"
+              class="h-12 w-auto"
             />
           </div>
 
