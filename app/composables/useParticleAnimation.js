@@ -61,11 +61,11 @@ class Particle {
     if (type === "human") {
       this.pixelSize = Math.floor(Math.random() * 2) + 1;
       this.opacity = Math.random() * 0.4 + 0.7;
-      this.baseColor = { r: 0, g: 120, b: 140 };
+      this.baseColor = { r: 136, g: 77, b: 255 };
     } else {
       this.pixelSize = 1;
       this.opacity = Math.random() * 0.4 + 0.6;
-      this.baseColor = { r: 0, g: 100, b: 120 };
+      this.baseColor = { r: 136, g: 77, b: 255 };
     }
 
     if (type === "human") {
@@ -278,4 +278,3 @@ export function useParticleAnimation(canvasRef, options = {}) {
     resize: handleResize,
   };
 }
-
