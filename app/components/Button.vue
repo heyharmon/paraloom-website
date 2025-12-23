@@ -37,7 +37,7 @@ const buttonClasses = computed(() => {
     "text-base font-medium px-7 py-3.5 rounded-full transition-all inline-flex items-center justify-center";
 
   const variantClasses = {
-    primary: "bg-orange-600 text-white hover:bg-orange-700",
+    primary: "bg-[#884dff] text-white hover:bg-[#6d3dcc]",
     secondary: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200",
   };
 

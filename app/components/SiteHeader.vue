@@ -111,7 +111,7 @@ const resourceLinks = [
         >
         <a
           href="#"
-          class="bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-orange-700 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          class="bg-[#884dff] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-[#6d3dcc] focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
           >Start for free</a
         >
       </div>
@@ -120,7 +120,7 @@ const resourceLinks = [
       <div class="flex lg:hidden items-center gap-3">
         <a
           href="#"
-          class="bg-orange-600 text-white text-sm font-medium px-3.5 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-orange-700 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
+          class="bg-[#884dff] text-white text-sm font-medium px-3.5 py-2 rounded-full transition-colors duration-150 ease-out hover:bg-[#6d3dcc] focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
           >Join</a
         >
         <button

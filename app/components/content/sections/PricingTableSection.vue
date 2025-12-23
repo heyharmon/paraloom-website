@@ -136,7 +136,7 @@ const pricingPlans = [
 
           <!-- Savings Text -->
           <p class="text-[14px] font-medium">
-            <span class="text-[#fb411f] font-semibold">2 months free</span>
+            <span class="text-[#884dff] font-semibold">2 months free</span>
             <span class="text-[#1e1e1e]"> when you go yearly</span>
           </p>
         </div>
@@ -153,7 +153,7 @@ const pricingPlans = [
           <!-- Most Popular Badge -->
           <div
             v-if="plan.highlighted"
-            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#fb411f] text-white text-[12px] font-medium px-4 py-1.5 rounded-full"
+            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#884dff] text-white text-[12px] font-medium px-4 py-1.5 rounded-full"
           >
             Most Popular
           </div>
@@ -286,7 +286,7 @@ const pricingPlans = [
           <div class="mt-auto">
             <a
               :href="plan.primaryCtaLink"
-              class="inline-flex items-center justify-center text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#fb411f] hover:opacity-90 transition-opacity"
+              class="inline-flex items-center justify-center text-white text-[14px] font-medium px-6 py-3 rounded-full bg-[#884dff] hover:opacity-90 transition-opacity"
             >
               {{ plan.primaryCta }}
             </a>
