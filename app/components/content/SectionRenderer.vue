@@ -27,7 +27,7 @@ const componentMap = {
     () => import("./sections/FeatureStickySection.vue")
   ),
   logoCarousel: defineAsyncComponent(
-    () => import("./sections/logoCarouselSection.vue")
+    () => import("./sections/LogoCarouselSection.vue")
   ),
   pricingTable: defineAsyncComponent(
     () => import("./sections/PricingTableSection.vue")
