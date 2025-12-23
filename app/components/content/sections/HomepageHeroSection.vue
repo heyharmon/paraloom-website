@@ -96,7 +96,7 @@ onUnmounted(() => {
 
 <template>
   <section
-    class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 pt-48 pb-32 gap-6"
+    class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 h-[73vh] gap-6"
   >
     <h1
       class="text-center text-slate-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
