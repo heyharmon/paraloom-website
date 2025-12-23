@@ -148,7 +148,7 @@ const pricingPlans = [
         <div
           v-for="plan in pricingPlans"
           :key="plan.id"
-          class="bg-slate-50 rounded-[40px] p-8 md:p-10 flex flex-col relative"
+          class="bg-slate-100 rounded-[40px] p-8 md:p-10 flex flex-col relative"
         >
           <!-- Most Popular Badge -->
           <div

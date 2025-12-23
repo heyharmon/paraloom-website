@@ -4,7 +4,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 const props = defineProps({
   headline: {
     type: String,
-    default: "Trusted by hundreds of FI's, globally",
+    default: "Trusted by 100+ FI's, globally",
   },
   logos: {
     type: Array,

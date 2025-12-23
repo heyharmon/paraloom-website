@@ -1,7 +1,7 @@
 <template>
   <section class="bg-white py-20 lg:pt-24 lg:pb-[160px] px-6">
     <!-- Section Header -->
-    <div class="flex flex-col items-center gap-6 mb-24">
+    <div class="flex flex-col items-center gap-6 mb-12">
       <h2 class="text-center">
         <span
           class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
@@ -26,33 +26,69 @@
           :data-index="index"
           class="min-h-0 lg:min-h-[70vh] flex flex-col justify-center transition-opacity duration-300 ease-out py-8 lg:py-0"
         >
-          <!-- Client Logo -->
-          <div class="mb-6">
-            <img
-              :src="study.logo"
-              :alt="study.client + ' logo'"
-              class="h-12 w-auto"
-            />
-          </div>
+          <!-- Mobile Card Wrapper -->
+          <div
+            class="lg:bg-transparent bg-slate-100 rounded-2xl lg:rounded-none p-6 pt-10 lg:p-0"
+          >
+            <!-- Client Logo -->
+            <div class="mb-6">
+              <img
+                :src="study.logo"
+                :alt="study.client + ' logo'"
+                class="h-12 w-auto"
+              />
+            </div>
 
-          <!-- Client Name & Topic -->
-          <!-- <h3 class="text-xl font-medium text-slate-900 mb-4">
-            {{ study.client }}
-          </h3> -->
+            <!-- Client Name & Topic -->
+            <!-- <h3 class="text-xl font-medium text-slate-900 mb-4">
+              {{ study.client }}
+            </h3> -->
 
-          <!-- Description -->
-          <p class="text-base leading-relaxed text-slate-600 mb-8">
-            {{ study.description }}
-          </p>
+            <!-- Description -->
+            <p class="text-base leading-relaxed text-slate-600 mb-8">
+              {{ study.description }}
+            </p>
 
-          <!-- Result Highlight - Before/After -->
-          <div class="mb-8">
-            <div class="flex items-baseline gap-3 mb-1">
-              <span class="text-4xl font-medium leading-none text-slate-400">
-                {{ study.resultBefore }}{{ study.resultUnit }}
+            <!-- Result Highlight - Before/After -->
+            <div class="mb-8">
+              <div class="flex items-baseline gap-3 mb-1">
+                <span class="text-4xl font-medium leading-none text-slate-400">
+                  {{ study.resultBefore }}{{ study.resultUnit }}
+                </span>
+                <svg
+                  class="w-6 h-6 text-slate-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+                <span class="text-5xl font-medium leading-none text-slate-900">
+                  {{ study.resultValue }}{{ study.resultUnit }}
+                </span>
+              </div>
+              <p class="text-sm text-slate-400">
+                {{ study.resultLabel }}
+              </p>
+            </div>
+
+            <!-- CTA Link -->
+            <NuxtLink
+              :to="study.link"
+              class="inline-flex items-center gap-2 text-sm font-medium text-slate-900 group"
+            >
+              <span
+                class="border-b border-gray-900 pb-0.5 group-hover:border-gray-400 transition-colors"
+              >
+                Read the full case study
               </span>
               <svg
-                class="w-6 h-6 text-slate-400"
+                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -64,137 +100,108 @@
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-              <span class="text-5xl font-medium leading-none text-slate-900">
-                {{ study.resultValue }}{{ study.resultUnit }}
-              </span>
-            </div>
-            <p class="text-sm text-slate-400">
-              {{ study.resultLabel }}
-            </p>
-          </div>
+            </NuxtLink>
 
-          <!-- CTA Link -->
-          <NuxtLink
-            :to="study.link"
-            class="inline-flex items-center gap-2 text-sm font-medium text-slate-900 group"
-          >
-            <span
-              class="border-b border-gray-900 pb-0.5 group-hover:border-gray-400 transition-colors"
-            >
-              Read the full case study
-            </span>
-            <svg
-              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </NuxtLink>
-
-          <!-- Mobile Image Card -->
-          <div
-            class="lg:hidden mt-8 relative rounded-2xl aspect-[4/3] overflow-hidden"
-          >
-            <img
-              :src="study.image"
-              :alt="study.imageAlt"
-              class="w-full h-full object-cover"
-            />
+            <!-- Mobile Image Card -->
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"
-            ></div>
-            <!-- Mobile Chat Card -->
-            <div class="absolute inset-4 flex items-center justify-center">
-              <div class="w-full flex flex-col gap-3">
-                <!-- User Message -->
-                <div
-                  class="flex flex-col items-start user-message"
-                  :class="{
-                    'message-visible':
-                      mobileDisplayedPrompts[index] ||
-                      mobileAnimatedIndices.has(index),
-                  }"
-                >
-                  <div class="mb-2 flex items-center gap-2 text-sm">
-                    <div
-                      class="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center"
-                    >
-                      <svg
-                        class="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
+              class="lg:hidden mt-8 relative rounded-2xl aspect-[4/3] overflow-hidden"
+            >
+              <img
+                :src="study.image"
+                :alt="study.imageAlt"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"
+              ></div>
+              <!-- Mobile Chat Card -->
+              <div class="absolute inset-4 flex items-center justify-center">
+                <div class="w-full flex flex-col gap-3">
+                  <!-- User Message -->
+                  <div
+                    class="flex flex-col items-start user-message"
+                    :class="{
+                      'message-visible':
+                        mobileDisplayedPrompts[index] ||
+                        mobileAnimatedIndices.has(index),
+                    }"
+                  >
+                    <div class="mb-2 flex items-center gap-2 text-sm">
+                      <div
+                        class="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center"
                       >
-                        <path
-                          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                        <svg
+                          class="w-3 h-3 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="font-medium text-white drop-shadow-md text-xs"
+                        >You</span
+                      >
+                    </div>
+                    <div
+                      class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
+                    >
+                      <p
+                        class="text-sm leading-relaxed text-slate-900 font-normal"
+                      >
+                        <span class="typing-content">{{
+                          mobileDisplayedPrompts[index] || ""
+                        }}</span>
+                        <span
+                          v-if="mobileTypingPrompts[index]"
+                          class="typing-cursor"
+                          >|</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <!-- AI Response -->
+                  <div
+                    class="flex flex-col items-start ai-response"
+                    :class="{
+                      'message-visible':
+                        mobileAnimatedIndices.has(index) &&
+                        mobileShowResponses[index],
+                    }"
+                  >
+                    <div class="mb-2 flex items-center gap-2 text-sm">
+                      <div
+                        class="w-5 h-5 rounded-full bg-[#10a37f] flex items-center justify-center"
+                      >
+                        <img
+                          src="/logos/logo-chatgpt.svg"
+                          alt="ChatGPT"
+                          class="w-3 h-3 invert"
                         />
-                      </svg>
-                    </div>
-                    <span class="font-medium text-white drop-shadow-md text-xs"
-                      >You</span
-                    >
-                  </div>
-                  <div
-                    class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
-                  >
-                    <p
-                      class="text-sm leading-relaxed text-slate-900 font-normal"
-                    >
-                      <span class="typing-content">{{
-                        mobileDisplayedPrompts[index] || ""
-                      }}</span>
+                      </div>
                       <span
-                        v-if="mobileTypingPrompts[index]"
-                        class="typing-cursor"
-                        >|</span
+                        class="font-medium text-white drop-shadow-md text-xs"
+                        >ChatGPT</span
                       >
-                    </p>
-                  </div>
-                </div>
-                <!-- AI Response -->
-                <div
-                  class="flex flex-col items-start ai-response"
-                  :class="{
-                    'message-visible':
-                      mobileAnimatedIndices.has(index) &&
-                      mobileShowResponses[index],
-                  }"
-                >
-                  <div class="mb-2 flex items-center gap-2 text-sm">
+                    </div>
                     <div
-                      class="w-5 h-5 rounded-full bg-[#10a37f] flex items-center justify-center"
+                      class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
                     >
-                      <img
-                        src="/logos/logo-chatgpt.svg"
-                        alt="ChatGPT"
-                        class="w-3 h-3 invert"
-                      />
-                    </div>
-                    <span class="font-medium text-white drop-shadow-md text-xs"
-                      >ChatGPT</span
-                    >
-                  </div>
-                  <div
-                    class="backdrop-blur-xl bg-white/70 rounded-2xl px-4 py-3 shadow-xl border border-white/50"
-                  >
-                    <p
-                      class="text-sm leading-relaxed text-slate-900 font-normal"
-                    >
-                      <span class="typing-content">{{
-                        mobileDisplayedResponses[index] || ""
-                      }}</span>
-                      <span
-                        v-if="mobileTypingResponses[index]"
-                        class="typing-cursor"
-                        >|</span
+                      <p
+                        class="text-sm leading-relaxed text-slate-900 font-normal"
                       >
-                    </p>
+                        <span class="typing-content">{{
+                          mobileDisplayedResponses[index] || ""
+                        }}</span>
+                        <span
+                          v-if="mobileTypingResponses[index]"
+                          class="typing-cursor"
+                          >|</span
+                        >
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

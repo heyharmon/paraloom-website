@@ -51,7 +51,7 @@ const resourceLinks = [
         href="#"
         class="flex items-center gap-2 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
       >
-        <span class="text-[22px] tracking-tight text-black">paraloom.ai</span>
+        <div class="text-[22px] tracking-tight text-black">Paraloom.ai</div>
       </a>
 
       <!-- Desktop Nav (hidden on mobile) -->
@@ -179,7 +179,7 @@ const resourceLinks = [
     <div
       class="flex items-center justify-between px-6 h-16 border-b border-gray-100"
     >
-      <span class="text-lg tracking-tight text-black">paraloom.ai</span>
+      <span class="text-lg tracking-tight text-black">Paraloom.ai</span>
       <button
         class="p-1 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
         aria-label="Close menu"
