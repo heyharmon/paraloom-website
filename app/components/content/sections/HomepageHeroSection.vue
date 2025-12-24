@@ -48,6 +48,48 @@ const props = defineProps({
     type: String,
     default: "/book-a-demo",
   },
+  // Logo carousel props
+  logoCarouselHeadline: {
+    type: String,
+    default: "Trusted by 100+ FI's, globally",
+  },
+  logos: {
+    type: Array,
+    default: () => [
+      { name: "Acadia FCU" },
+      { name: "Advance Financial FCU" },
+      { name: "Affinity Credit Union" },
+      { name: "Allied FCU" },
+      { name: "Alltru Credit Union" },
+      { name: "Alta Vista CU" },
+      { name: "Altamaha Bank" },
+      { name: "AlumniFi" },
+      { name: "America's First FCU" },
+      { name: "Andover Bank" },
+      { name: "Apple FCU" },
+      { name: "BankBound" },
+      { name: "Bank Social" },
+      { name: "Baxter Credit Union" },
+      { name: "BayCoast Bank" },
+      { name: "Blackhawk Bank" },
+      { name: "Blue Grass Federal" },
+      { name: "Brightstar Credit Union" },
+      { name: "Centier Bank" },
+      { name: "Central One" },
+      { name: "Central State CU" },
+      { name: "Centricity CU" },
+      { name: "Centris FCU" },
+      { name: "CFFCU" },
+      { name: "ChoiceOne Bank" },
+      { name: "Clearwater Credit Union" },
+      { name: "Collegiate CU" },
+      { name: "Colorado CU" },
+    ],
+  },
+  logoCarouselDuration: {
+    type: Number,
+    default: 120,
+  },
 });
 
 // Current platform index
@@ -56,6 +98,25 @@ const isTransitioning = ref(false);
 
 // Current platform computed
 const currentPlatform = computed(() => props.platforms[currentIndex.value]);
+
+// Logo carousel
+const trackRef = ref(null);
+const singleSetWidth = ref(0);
+
+const calculateWidth = () => {
+  if (trackRef.value) {
+    const items = trackRef.value.querySelectorAll("li");
+    const halfCount = items.length / 2;
+    let width = 0;
+    for (let i = 0; i < halfCount; i++) {
+      width += items[i].offsetWidth;
+      if (i < halfCount) {
+        width += 80; // gap-20 = 5rem = 80px
+      }
+    }
+    singleSetWidth.value = width;
+  }
+};
 
 // Cycle through platforms
 let intervalId = null;
@@ -85,18 +146,23 @@ onMounted(() => {
       intervalId = setInterval(cyclePlatform, props.cycleInterval);
     }, 1500);
   }
+
+  // Logo carousel width calculation
+  calculateWidth();
+  window.addEventListener("resize", calculateWidth);
 });
 
 onUnmounted(() => {
   if (intervalId) {
     clearInterval(intervalId);
   }
+  window.removeEventListener("resize", calculateWidth);
 });
 </script>
 
 <template>
-  <section class="relative w-full h-[73vh] overflow-hidden">
-    <!-- Animated mesh gradient background -->
+  <section class="relative w-full min-h-screen overflow-hidden flex flex-col">
+    <!-- Mesh gradient background -->
     <div class="mesh-gradient-container">
       <div class="mesh-blob mesh-blob-1"></div>
       <div class="mesh-blob mesh-blob-2"></div>
@@ -104,9 +170,9 @@ onUnmounted(() => {
       <div class="mesh-blob mesh-blob-4"></div>
     </div>
 
-    <!-- Content container -->
+    <!-- Main content container -->
     <div
-      class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 h-full gap-6"
+      class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 flex-1 gap-6 pt-20"
     >
       <h1
         class="text-center text-slate-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
@@ -138,6 +204,44 @@ onUnmounted(() => {
         <Button variant="secondary" :href="secondaryButtonHref">
           {{ secondaryButtonText }}
         </Button>
+      </div>
+    </div>
+
+    <!-- Logo carousel at bottom -->
+    <div class="relative z-10 w-full pb-8 lg:pb-12">
+      <div class="flex justify-center mb-6">
+        <p class="text-xs text-center font-sans text-slate-400">
+          {{ logoCarouselHeadline }}
+        </p>
+      </div>
+
+      <div class="overflow-hidden">
+        <div class="logo-carousel-mask">
+          <ul
+            ref="trackRef"
+            class="flex items-center gap-20 w-max list-none m-0 p-0 animate-marquee"
+            :style="{
+              animationDuration: `${logoCarouselDuration}s`,
+              '--scroll-width': `${singleSetWidth}px`,
+            }"
+          >
+            <li
+              v-for="(logo, index) in logos"
+              :key="`set1-${index}`"
+              class="shrink-0 flex items-center justify-center text-slate-500"
+            >
+              <span>{{ logo.name }}</span>
+            </li>
+
+            <li
+              v-for="(logo, index) in logos"
+              :key="`set2-${index}`"
+              class="shrink-0 flex items-center justify-center text-slate-500"
+            >
+              <span>{{ logo.name }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -224,6 +328,37 @@ onUnmounted(() => {
     rgba(167, 243, 208, 0.4) 0%,
     rgba(167, 243, 208, 0.1) 40%,
     transparent 70%
+  );
+}
+
+/* Logo carousel styles */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(var(--scroll-width, 50%) * -1));
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.logo-carousel-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
   );
 }
 </style>

@@ -72,7 +72,9 @@ const resourceLinks = [
 
 <template>
   <!-- Navbar -->
-  <header class="bg-white w-full">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20"
+  >
     <div class="mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a
