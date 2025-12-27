@@ -90,7 +90,7 @@ useHead({
       v-else
       class="flex flex-col items-center justify-center min-h-[60vh] px-6"
     >
-      <h1 class="text-4xl font-bold text-slate-900 mb-4">Page Not Found</h1>
+      <h1 class="text-4xl text-slate-900 mb-4">Page not found</h1>
       <p class="text-lg text-slate-600 mb-8">
         The page you're looking for doesn't exist.
       </p>

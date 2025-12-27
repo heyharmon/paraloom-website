@@ -72,13 +72,11 @@ const resourceLinks = [
 
 <template>
   <!-- Navbar -->
-  <header
-    class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20"
-  >
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl">
     <div class="mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a
-        href="#"
+        href="/"
         class="flex items-center gap-2 transition-opacity duration-100 ease-out hover:opacity-65 focus-visible:outline focus-visible:outline-1 focus-visible:outline-black focus-visible:outline-offset-2"
       >
         <div class="text-[22px] tracking-tight text-black">Paraloom.ai</div>
@@ -120,7 +118,7 @@ const resourceLinks = [
           </button>
 
           <div
-            class="absolute top-full left-0 mt-2 w-52 bg-stone-100 rounded-xl p-2 shadow-lg transition-all duration-150 ease-out"
+            class="absolute top-full left-0 mt-2 w-52 bg-slate-50 rounded-xl p-2 shadow-xl transition-all duration-150 ease-out"
             :class="
               isResourcesOpen
                 ? 'opacity-100 translate-y-0 pointer-events-auto'

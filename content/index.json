@@ -25,7 +25,7 @@
       ],
       "cycleInterval": 4000,
       "subheadline": "Paraloom helps FI's measure and improve how AI assistants see them—so you're found when members need you most.",
-      "logoCarouselHeadline": "Trusted by 100+ FI's, globally"
+      "logoCarouselHeadline": "Trusted by hundreds of FI's, globally"
     },
     {
       "type": "homepageCaseStudies"
@@ -50,6 +50,10 @@
     },
     {
       "type": "pricingTable"
+    },
+    {
+      "type": "logoCarousel",
+      "headline": "Trusted by hundreds of FI's, globally"
     }
   ]
 }
