@@ -54,24 +54,26 @@
       "stats": [
         {
           "prefix": "",
-          "digits": [5, 0, 0],
-          "suffix": "+",
-          "label": "Financial Institutions",
-          "ariaLabel": "500+"
+          "digits": [2, 2, 0],
+          "suffix": "",
+          "label": "Teams using Paraloom",
+          "ariaLabel": "220"
         },
         {
           "prefix": "",
-          "digits": [1, 0],
-          "suffix": "M+",
-          "label": "AI Queries Analyzed",
-          "ariaLabel": "10M+"
+          "digits": [1, 4, 3, 5, 1],
+          "separators": [2],
+          "suffix": "",
+          "label": "Brands tracked",
+          "ariaLabel": "14,351"
         },
         {
           "prefix": "",
-          "digits": [4, 5],
-          "suffix": "%",
-          "label": "Avg. Visibility Increase",
-          "ariaLabel": "45%"
+          "digits": [5, 8, 9, 9, 8],
+          "separators": [2],
+          "suffix": "",
+          "label": "Responses analyzed",
+          "ariaLabel": "58,998"
         }
       ]
     },

@@ -4,7 +4,8 @@ import { ref, onMounted, onUnmounted } from "vue";
 const props = defineProps({
   eyebrow: {
     type: String,
-    default: "Join millions of entrepreneurs who run their business on Squarespace.",
+    default:
+      "Join millions of entrepreneurs who run their business on Squarespace.",
   },
   stats: {
     type: Array,
@@ -122,29 +123,36 @@ const getCardDelay = (index) => {
       >
         <!-- Stat Number -->
         <div
-          class="text-slate-900 text-[clamp(56px,10vw,88px)] font-medium leading-[1.05] tracking-tight flex items-baseline h-[1.1em] overflow-hidden"
+          class="text-slate-900 text-[clamp(48px,9vw,72px)] font-medium leading-[1.05] tracking-[-0.04em] flex items-baseline h-[1.1em] overflow-hidden"
           :aria-label="stat.ariaLabel"
         >
           <!-- Prefix -->
           <span v-if="stat.prefix" class="inline-block">{{ stat.prefix }}</span>
 
           <!-- Digit Rollers -->
-          <span
+          <template
             v-for="(targetDigit, digitIndex) in stat.digits"
             :key="digitIndex"
-            class="inline-flex flex-col h-[1em] overflow-hidden relative"
           >
+            <!-- Comma separator before this digit if specified -->
             <span
-              v-for="digit in digitRange"
-              :key="digit"
-              class="h-[1em] flex items-center justify-center shrink-0 transition-transform duration-2000 ease-out-expo"
-              :style="{
-                transform: `translateY(-${digitPositions[statIndex][digitIndex]}em)`,
-              }"
+              v-if="stat.separators?.includes(digitIndex)"
+              class="inline-block"
+              >,</span
             >
-              {{ digit }}
+            <span class="inline-flex flex-col h-[1em] overflow-hidden relative">
+              <span
+                v-for="digit in digitRange"
+                :key="digit"
+                class="h-[1em] flex items-center justify-center shrink-0 transition-transform duration-2000 ease-out-expo"
+                :style="{
+                  transform: `translateY(-${digitPositions[statIndex][digitIndex]}em)`,
+                }"
+              >
+                {{ digit }}
+              </span>
             </span>
-          </span>
+          </template>
 
           <!-- Suffix -->
           <span class="inline-block">{{ stat.suffix }}</span>
@@ -181,4 +189,3 @@ const getCardDelay = (index) => {
   transition-delay: 100ms;
 }
 </style>
-
