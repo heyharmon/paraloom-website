@@ -49,6 +49,33 @@
       ]
     },
     {
+      "type": "animatedStats",
+      "eyebrow": "Trusted by financial institutions worldwide to improve their AI visibility.",
+      "stats": [
+        {
+          "prefix": "",
+          "digits": [5, 0, 0],
+          "suffix": "+",
+          "label": "Financial Institutions",
+          "ariaLabel": "500+"
+        },
+        {
+          "prefix": "",
+          "digits": [1, 0],
+          "suffix": "M+",
+          "label": "AI Queries Analyzed",
+          "ariaLabel": "10M+"
+        },
+        {
+          "prefix": "",
+          "digits": [4, 5],
+          "suffix": "%",
+          "label": "Avg. Visibility Increase",
+          "ariaLabel": "45%"
+        }
+      ]
+    },
+    {
       "type": "pricingTable"
     },
     {

@@ -35,6 +35,9 @@ const componentMap = {
   pricingTable: defineAsyncComponent(
     () => import("./sections/PricingTableSection.vue")
   ),
+  animatedStats: defineAsyncComponent(
+    () => import("./sections/AnimatedStatsSection.vue")
+  ),
 };
 
 // Get list of available section types for error messages
