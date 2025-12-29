@@ -1,0 +1,20 @@
+{
+  "title": "Case Studies - What Works and What Doesn't | Paraloom",
+  "description": "We're transparently sharing real test results—wins and losses—so you can see what actually works for AI visibility.",
+  "layout": "default",
+  "sections": [
+    {
+      "type": "hero",
+      "headline": "What Works and What Doesn't",
+      "subheadline": "We're transparently sharing real test results—wins and losses—so you can see what actually works for AI visibility.",
+      "primaryButtonText": "Start Free Trial",
+      "primaryButtonHref": "#",
+      "secondaryButtonText": "View Pricing",
+      "secondaryButtonHref": "/pricing"
+    },
+    {
+      "type": "caseStudiesGrid"
+    }
+  ]
+}
+

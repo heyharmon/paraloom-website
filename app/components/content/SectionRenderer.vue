@@ -23,6 +23,9 @@ const componentMap = {
   homepageCaseStudies: defineAsyncComponent(
     () => import("./sections/HomepageCaseStudiesGallerySection.vue")
   ),
+  caseStudiesGrid: defineAsyncComponent(
+    () => import("./sections/CaseStudiesGridSection.vue")
+  ),
   features: defineAsyncComponent(
     () => import("./sections/FeaturesSection.vue")
   ),
