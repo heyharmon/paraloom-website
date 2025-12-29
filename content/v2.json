@@ -1,0 +1,53 @@
+{
+  "title": "Welcome to Your Website",
+  "description": "A modern, professional website built with Nuxt. Customize this content to match your business, service, or project.",
+  "layout": "default",
+  "sections": [
+    {
+      "type": "homepageHeroV2",
+      "useCases": [
+        { "emoji": "🚗", "label": "auto loan" },
+        { "emoji": "🏠", "label": "home loan" },
+        { "emoji": "💳", "label": "credit card" },
+        { "emoji": "💵", "label": "personal loan" },
+        { "emoji": "🐖", "label": "savings account" }
+      ],
+      "provider": {
+        "logo": "/logos/logo-chatgpt.svg",
+        "name": "ChatGPT.",
+        "alt": "ChatGPT logo"
+      },
+      "cycleInterval": 4500,
+      "subheadline": "Paraloom helps FI's measure and improve how AI assistants see them—so you're found when members need you most."
+    },
+    {
+      "type": "homepageCaseStudies"
+    },
+    {
+      "type": "features",
+      "title": "Everything FI's need to improve their AI visibility",
+      "items": [
+        {
+          "title": "Optimize Visibility",
+          "description": "Write optimized articles to improve visibility in LLM responses."
+        },
+        {
+          "title": "Track Mentions",
+          "description": "Monitor your brand's visibility in LLM responses."
+        },
+        {
+          "title": "Benchmark Competitors",
+          "description": "See how you stack up against competitors."
+        }
+      ]
+    },
+    {
+      "type": "pricingTable"
+    },
+    {
+      "type": "logoCarousel",
+      "headline": "Trusted by hundreds of FI's, globally"
+    }
+  ]
+}
+

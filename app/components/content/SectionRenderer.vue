@@ -17,6 +17,9 @@ const componentMap = {
   homepageHero: defineAsyncComponent(
     () => import("./sections/HomepageHeroSection.vue")
   ),
+  homepageHeroV2: defineAsyncComponent(
+    () => import("./sections/HomepageHeroSectionV2.vue")
+  ),
   homepageCaseStudies: defineAsyncComponent(
     () => import("./sections/HomepageCaseStudiesGallerySection.vue")
   ),

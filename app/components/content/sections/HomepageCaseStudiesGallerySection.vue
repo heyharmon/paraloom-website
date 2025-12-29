@@ -831,11 +831,11 @@ const getInitials = (name) => {
 }
 
 .scroll-up {
-  animation: scrollUp 70s linear infinite;
+  animation: scrollUp 90s linear infinite;
 }
 
 .scroll-down {
-  animation: scrollDown 70s linear infinite;
+  animation: scrollDown 90s linear infinite;
 }
 
 /* GPU optimization for smooth scrolling */
@@ -872,8 +872,8 @@ const getInitials = (name) => {
   background: linear-gradient(to top, white 0%, transparent 100%);
 }
 
-/* Pause animation on hover */
-.case-study-container:hover .scroll-column {
+/* Pause animation on hover - only the hovered column pauses */
+.scroll-column:hover {
   animation-play-state: paused;
 }
 </style>
