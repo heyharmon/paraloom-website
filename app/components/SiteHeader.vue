@@ -60,7 +60,7 @@ onUnmounted(() => {
 // Navigation data
 const navLinks = [
   { label: "Pricing", href: "#" },
-  { label: "Case Studies", href: "#" },
+  { label: "Case Studies", href: "/case-studies" },
 ];
 
 const resourceLinks = [

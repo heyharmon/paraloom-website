@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import CaseStudyGridCard from "./CaseStudyGridCard.vue";
 
 // Case study data for each column - minimal info: logo, name, visibility change, category
 const column1CaseStudies = ref([
@@ -321,16 +322,6 @@ const column5CaseStudies = ref([
 const getDoubledCaseStudies = (caseStudies) => {
   return [...caseStudies, ...caseStudies];
 };
-
-// Generate initials from company name
-const getInitials = (name) => {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
-};
 </script>
 
 <template>
@@ -368,81 +359,15 @@ const getInitials = (name) => {
               :key="`col1-${study.id}-${index}`"
               class="case-study-card"
             >
-              <NuxtLink
-                :to="study.link"
-                class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <!-- Header: Logo + Company + Status -->
-                <div class="mb-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
-                    >
-                      <img
-                        v-if="study.logo"
-                        :src="study.logo"
-                        :alt="study.company"
-                        class="h-5 w-5 object-contain"
-                      />
-                      <span v-else class="text-xs font-semibold text-slate-500">
-                        {{ getInitials(study.company) }}
-                      </span>
-                    </div>
-                    <span class="text-sm font-semibold text-slate-800">
-                      {{ study.company }}
-                    </span>
-                  </div>
-                  <span
-                    :class="[
-                      'rounded-full px-2.5 py-1 text-xs font-semibold',
-                      study.status === 'win'
-                        ? 'bg-emerald-50 text-emerald-600'
-                        : 'bg-slate-100 text-slate-500',
-                    ]"
-                  >
-                    {{ study.status === "win" ? "Win" : "No change" }}
-                  </span>
-                </div>
-
-                <!-- Change Value -->
-                <div
-                  :class="[
-                    'text-3xl',
-                    study.status === 'win'
-                      ? 'text-slate-900'
-                      : 'text-slate-400',
-                  ]"
-                >
-                  {{ study.change }}
-                </div>
-
-                <!-- Description -->
-                <p class="mt-1 text-sm text-slate-500">
-                  {{ study.description }}
-                </p>
-
-                <!-- Footer: Category + Arrow -->
-                <div
-                  class="mt-3 flex items-center justify-between border-t border-slate-100 pt-3"
-                >
-                  <span class="text-xs text-slate-400">{{
-                    study.category
-                  }}</span>
-                  <svg
-                    class="h-4 w-4 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </NuxtLink>
+              <CaseStudyGridCard
+                :company="study.company"
+                :logo="study.logo"
+                :change="study.change"
+                :description="study.description"
+                :category="study.category"
+                :status="study.status"
+                :link="study.link"
+              />
             </div>
           </div>
         </div>
@@ -459,74 +384,15 @@ const getInitials = (name) => {
               :key="`col2-${study.id}-${index}`"
               class="case-study-card"
             >
-              <NuxtLink
-                :to="study.link"
-                class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <div class="mb-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
-                    >
-                      <img
-                        v-if="study.logo"
-                        :src="study.logo"
-                        :alt="study.company"
-                        class="h-5 w-5 object-contain"
-                      />
-                      <span v-else class="text-xs font-semibold text-slate-500">
-                        {{ getInitials(study.company) }}
-                      </span>
-                    </div>
-                    <span class="text-sm font-semibold text-slate-800">
-                      {{ study.company }}
-                    </span>
-                  </div>
-                  <span
-                    :class="[
-                      'rounded-full px-2.5 py-1 text-xs font-semibold',
-                      study.status === 'win'
-                        ? 'bg-emerald-50 text-emerald-600'
-                        : 'bg-slate-100 text-slate-500',
-                    ]"
-                  >
-                    {{ study.status === "win" ? "Win" : "No change" }}
-                  </span>
-                </div>
-                <div
-                  :class="[
-                    'text-3xl',
-                    study.status === 'win'
-                      ? 'text-slate-900'
-                      : 'text-slate-400',
-                  ]"
-                >
-                  {{ study.change }}
-                </div>
-                <p class="mt-1 text-sm text-slate-500">
-                  {{ study.description }}
-                </p>
-                <div
-                  class="mt-3 flex items-center justify-between border-t border-slate-100 pt-3"
-                >
-                  <span class="text-xs text-slate-400">{{
-                    study.category
-                  }}</span>
-                  <svg
-                    class="h-4 w-4 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </NuxtLink>
+              <CaseStudyGridCard
+                :company="study.company"
+                :logo="study.logo"
+                :change="study.change"
+                :description="study.description"
+                :category="study.category"
+                :status="study.status"
+                :link="study.link"
+              />
             </div>
           </div>
         </div>
@@ -543,74 +409,15 @@ const getInitials = (name) => {
               :key="`col3-${study.id}-${index}`"
               class="case-study-card"
             >
-              <NuxtLink
-                :to="study.link"
-                class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <div class="mb-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
-                    >
-                      <img
-                        v-if="study.logo"
-                        :src="study.logo"
-                        :alt="study.company"
-                        class="h-5 w-5 object-contain"
-                      />
-                      <span v-else class="text-xs font-semibold text-slate-500">
-                        {{ getInitials(study.company) }}
-                      </span>
-                    </div>
-                    <span class="text-sm font-semibold text-slate-800">
-                      {{ study.company }}
-                    </span>
-                  </div>
-                  <span
-                    :class="[
-                      'rounded-full px-2.5 py-1 text-xs font-semibold',
-                      study.status === 'win'
-                        ? 'bg-emerald-50 text-emerald-600'
-                        : 'bg-slate-100 text-slate-500',
-                    ]"
-                  >
-                    {{ study.status === "win" ? "Win" : "No change" }}
-                  </span>
-                </div>
-                <div
-                  :class="[
-                    'text-3xl',
-                    study.status === 'win'
-                      ? 'text-slate-900'
-                      : 'text-slate-400',
-                  ]"
-                >
-                  {{ study.change }}
-                </div>
-                <p class="mt-1 text-sm text-slate-500">
-                  {{ study.description }}
-                </p>
-                <div
-                  class="mt-3 flex items-center justify-between border-t border-slate-100 pt-3"
-                >
-                  <span class="text-xs text-slate-400">{{
-                    study.category
-                  }}</span>
-                  <svg
-                    class="h-4 w-4 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </NuxtLink>
+              <CaseStudyGridCard
+                :company="study.company"
+                :logo="study.logo"
+                :change="study.change"
+                :description="study.description"
+                :category="study.category"
+                :status="study.status"
+                :link="study.link"
+              />
             </div>
           </div>
         </div>
@@ -627,74 +434,15 @@ const getInitials = (name) => {
               :key="`col4-${study.id}-${index}`"
               class="case-study-card"
             >
-              <NuxtLink
-                :to="study.link"
-                class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <div class="mb-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
-                    >
-                      <img
-                        v-if="study.logo"
-                        :src="study.logo"
-                        :alt="study.company"
-                        class="h-5 w-5 object-contain"
-                      />
-                      <span v-else class="text-xs font-semibold text-slate-500">
-                        {{ getInitials(study.company) }}
-                      </span>
-                    </div>
-                    <span class="text-sm font-semibold text-slate-800">
-                      {{ study.company }}
-                    </span>
-                  </div>
-                  <span
-                    :class="[
-                      'rounded-full px-2.5 py-1 text-xs font-semibold',
-                      study.status === 'win'
-                        ? 'bg-emerald-50 text-emerald-600'
-                        : 'bg-slate-100 text-slate-500',
-                    ]"
-                  >
-                    {{ study.status === "win" ? "Win" : "No change" }}
-                  </span>
-                </div>
-                <div
-                  :class="[
-                    'text-3xl',
-                    study.status === 'win'
-                      ? 'text-slate-900'
-                      : 'text-slate-400',
-                  ]"
-                >
-                  {{ study.change }}
-                </div>
-                <p class="mt-1 text-sm text-slate-500">
-                  {{ study.description }}
-                </p>
-                <div
-                  class="mt-3 flex items-center justify-between border-t border-slate-100 pt-3"
-                >
-                  <span class="text-xs text-slate-400">{{
-                    study.category
-                  }}</span>
-                  <svg
-                    class="h-4 w-4 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </NuxtLink>
+              <CaseStudyGridCard
+                :company="study.company"
+                :logo="study.logo"
+                :change="study.change"
+                :description="study.description"
+                :category="study.category"
+                :status="study.status"
+                :link="study.link"
+              />
             </div>
           </div>
         </div>
@@ -711,74 +459,15 @@ const getInitials = (name) => {
               :key="`col5-${study.id}-${index}`"
               class="case-study-card"
             >
-              <NuxtLink
-                :to="study.link"
-                class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <div class="mb-3 flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
-                    >
-                      <img
-                        v-if="study.logo"
-                        :src="study.logo"
-                        :alt="study.company"
-                        class="h-5 w-5 object-contain"
-                      />
-                      <span v-else class="text-xs font-semibold text-slate-500">
-                        {{ getInitials(study.company) }}
-                      </span>
-                    </div>
-                    <span class="text-sm font-semibold text-slate-800">
-                      {{ study.company }}
-                    </span>
-                  </div>
-                  <span
-                    :class="[
-                      'rounded-full px-2.5 py-1 text-xs font-semibold',
-                      study.status === 'win'
-                        ? 'bg-emerald-50 text-emerald-600'
-                        : 'bg-slate-100 text-slate-500',
-                    ]"
-                  >
-                    {{ study.status === "win" ? "Win" : "No change" }}
-                  </span>
-                </div>
-                <div
-                  :class="[
-                    'text-3xl',
-                    study.status === 'win'
-                      ? 'text-slate-900'
-                      : 'text-slate-400',
-                  ]"
-                >
-                  {{ study.change }}
-                </div>
-                <p class="mt-1 text-sm text-slate-500">
-                  {{ study.description }}
-                </p>
-                <div
-                  class="mt-3 flex items-center justify-between border-t border-slate-100 pt-3"
-                >
-                  <span class="text-xs text-slate-400">{{
-                    study.category
-                  }}</span>
-                  <svg
-                    class="h-4 w-4 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </NuxtLink>
+              <CaseStudyGridCard
+                :company="study.company"
+                :logo="study.logo"
+                :change="study.change"
+                :description="study.description"
+                :category="study.category"
+                :status="study.status"
+                :link="study.link"
+              />
             </div>
           </div>
         </div>

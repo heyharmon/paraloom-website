@@ -12,12 +12,20 @@ useParticleAnimation(canvasRef, {
 </script>
 
 <template>
-  <footer class="bg-neutral-900 text-white relative">
+  <footer class="bg-neutral-900 text-white relative overflow-hidden">
+    <!-- Particle Animation Background -->
+    <canvas
+      ref="canvasRef"
+      class="absolute inset-0 w-full h-full pointer-events-none"
+      style="image-rendering: pixelated; image-rendering: crisp-edges"
+    />
+
+    <!-- Footer Content -->
     <div
-      class="w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8"
+      class="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8"
     >
-      <!-- Desktop Layout -->
-      <div class="hidden md:grid grid-cols-12 gap-8">
+        <!-- Desktop Layout -->
+        <div class="hidden md:grid grid-cols-12 gap-8">
         <!-- Case Studies Column -->
         <div class="col-span-4">
           <p class="text-white/40 text-sm font-normal mb-2">Case studies</p>
@@ -48,9 +56,9 @@ useParticleAnimation(canvasRef, {
               >Zing Credit Union</a
             >
             <a
-              href="#"
+              href="/case-studies"
               class="text-white text-3xl font-normal leading-tight block transition-opacity duration-200 hover:opacity-70"
-              >More</a
+              >All Case Studies</a
             >
           </nav>
         </div>
@@ -135,9 +143,9 @@ useParticleAnimation(canvasRef, {
               >Zing Credit Union</a
             >
             <a
-              href="#"
+              href="/case-studies"
               class="text-white text-2xl font-normal leading-normal block transition-opacity duration-200 hover:opacity-70"
-              >More</a
+              >All Case Studies</a
             >
           </nav>
         </div>
@@ -165,7 +173,7 @@ useParticleAnimation(canvasRef, {
         </div>
 
         <!-- Policies -->
-        <div class="mb-12">
+        <div>
           <p class="text-white/40 text-xs font-normal mb-3">Policies</p>
           <nav class="flex flex-col gap-1">
             <a
@@ -187,24 +195,13 @@ useParticleAnimation(canvasRef, {
         </div>
       </div>
 
-      <!-- Particle Animation and Bottom Section -->
-      <div class="relative w-screen -ml-[50vw] left-1/2 mt-20 overflow-hidden">
-        <div class="relative h-[30vw] min-h-[250px] max-h-[450px] w-full">
-          <canvas
-            ref="canvasRef"
-            class="absolute inset-0 w-full h-full"
-            style="image-rendering: pixelated; image-rendering: crisp-edges"
-          />
-        </div>
-
-        <!-- Bottom Bar - below animation -->
-        <div
-          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 px-6 md:px-10 pt-4 pb-2"
-        >
-          <p class="text-white/40 text-xs">
-            © Paraloom 2025. All rights reserved.
-          </p>
-        </div>
+      <!-- Bottom Bar -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 pt-4 mt-32 md:mt-40 border-t border-white/10"
+      >
+        <p class="text-white/40 text-xs">
+          © Paraloom 2025. All rights reserved.
+        </p>
       </div>
     </div>
   </footer>
