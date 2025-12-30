@@ -24,8 +24,8 @@ useParticleAnimation(canvasRef, {
     <div
       class="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-8"
     >
-        <!-- Desktop Layout -->
-        <div class="hidden md:grid grid-cols-12 gap-8">
+      <!-- Desktop Layout -->
+      <div class="hidden md:grid grid-cols-12 gap-8">
         <!-- Case Studies Column -->
         <div class="col-span-4">
           <p class="text-white/40 text-sm font-normal mb-2">Case studies</p>
@@ -197,11 +197,12 @@ useParticleAnimation(canvasRef, {
 
       <!-- Bottom Bar -->
       <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 pt-4 mt-32 md:mt-40 border-t border-white/10"
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-4 mt-32 md:mt-40 border-t border-white/10"
       >
         <p class="text-white/40 text-xs">
           © Paraloom 2025. All rights reserved.
         </p>
+        <ColorModeToggle variant="dark" />
       </div>
     </div>
   </footer>

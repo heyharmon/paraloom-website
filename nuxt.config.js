@@ -9,8 +9,17 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxt/fonts",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
     "nuxt-gtag",
   ],
+
+  // Color mode configuration - https://color-mode.nuxtjs.org
+  colorMode: {
+    classSuffix: "", // Use 'dark' class instead of 'dark-mode'
+    preference: "system", // Default to system preference
+    fallback: "light", // Fallback if no preference detected
+    storageKey: "color-mode", // localStorage key
+  },
 
   css: ["~/assets/css/main.css"],
 
@@ -72,7 +81,6 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: "en",
-        // class: "dark",
       },
       title: "Your Website - Professional Services",
       meta: [
