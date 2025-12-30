@@ -72,7 +72,9 @@ const resourceLinks = [
 
 <template>
   <!-- Navbar -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl">
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-brand-900/70 backdrop-blur-xl"
+  >
     <div class="mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a
@@ -207,7 +209,7 @@ const resourceLinks = [
 
   <!-- Mobile Menu Panel -->
   <div
-    class="fixed top-0 right-0 w-4/5 max-w-md h-full bg-white z-50 lg:hidden overflow-y-auto transition-transform duration-300 ease-out"
+    class="fixed top-0 right-0 w-4/5 max-w-md h-full bg-page z-50 lg:hidden overflow-y-auto transition-transform duration-300 ease-out"
     :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
   >
     <!-- Mobile Header -->

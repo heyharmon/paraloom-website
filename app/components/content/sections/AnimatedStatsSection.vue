@@ -93,7 +93,7 @@ const getCardDelay = (index) => {
 <template>
   <section
     ref="sectionRef"
-    class="bg-white flex flex-col items-center justify-center px-6 md:px-10 py-24 md:py-32"
+    class="bg-page flex flex-col items-center justify-center px-6 md:px-10 py-24 md:py-32"
   >
     <!-- Eyebrow Text -->
     <p

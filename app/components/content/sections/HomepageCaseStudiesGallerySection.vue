@@ -325,7 +325,7 @@ const getDoubledCaseStudies = (caseStudies) => {
 </script>
 
 <template>
-  <section class="overflow-hidden bg-white py-16 md:py-24">
+  <section class="overflow-hidden bg-page py-16 md:py-24">
     <!-- Header -->
     <div class="mb-12 px-6 text-center md:mb-16">
       <p class="mb-3 text-sm font-medium text-violet-600 md:text-base">

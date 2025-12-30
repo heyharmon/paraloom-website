@@ -51,7 +51,7 @@ const titleParts = computed(() => {
         <div
           v-for="(item, index) in items"
           :key="index"
-          class="rounded-3xl bg-slate-100 p-10"
+          class="rounded-3xl bg-card p-10"
         >
           <!-- Checkmark Icon -->
           <div

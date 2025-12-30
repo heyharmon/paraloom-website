@@ -89,7 +89,7 @@ const changeClass = computed(() => {
     <div class="mb-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div
-          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100"
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-card"
         >
           <img
             v-if="logo"

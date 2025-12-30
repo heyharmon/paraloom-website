@@ -24,12 +24,10 @@ export default {
         subheadline: "var(--color-subheadline)",
         body: "var(--color-body)",
         muted: "var(--color-muted)",
-        // Surface colors for backgrounds
-        surface: {
-          DEFAULT: "var(--surface)",
-          secondary: "var(--surface-secondary)",
-          inverse: "var(--surface-inverse)",
-        },
+        // Semantic background colors (also work for text, border, etc.)
+        page: "var(--bg-page)",
+        card: "var(--bg-card)",
+        inverse: "var(--bg-inverse)",
       },
     },
   },

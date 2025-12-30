@@ -20,11 +20,11 @@
     --brand-950: #1a0833;
 
     /* ================================
-       Surface Colors (backgrounds)
+       Background Colors
        ================================ */
-    --surface: #ffffff;
-    --surface-secondary: #f8fafc; /* slate-50 */
-    --surface-inverse: var(--brand-900);
+    --bg-page: #ffffff;
+    --bg-card: #f1f5f9; /* slate-100 */
+    --bg-inverse: var(--brand-900);
 
     /* ================================
        Semantic Text Colors
@@ -50,9 +50,9 @@
      Dark Mode Overrides
      ================================ */
   .dark {
-    --surface: var(--brand-950);
-    --surface-secondary: var(--brand-900);
-    --surface-inverse: var(--brand-50);
+    --bg-page: var(--brand-900);
+    --bg-card: var(--brand-800);
+    --bg-inverse: var(--brand-950);
 
     --color-heading: var(--brand-50);
     --color-subheadline: #94a3b8; /* slate-400 */
@@ -105,6 +105,19 @@
 
   .text-muted {
     color: var(--color-muted);
+  }
+
+  /* Background utilities */
+  .bg-page {
+    background-color: var(--bg-page);
+  }
+
+  .bg-card {
+    background-color: var(--bg-card);
+  }
+
+  .bg-inverse {
+    background-color: var(--bg-inverse);
   }
 }
 

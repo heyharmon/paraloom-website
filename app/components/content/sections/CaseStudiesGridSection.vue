@@ -167,7 +167,7 @@ const resultsText = computed(() => {
 </script>
 
 <template>
-  <section class="bg-white px-6 py-16 md:py-24">
+  <section class="bg-page px-6 py-16 md:py-24">
     <div class="mx-auto max-w-screen-2xl">
       <!-- Filters -->
       <div

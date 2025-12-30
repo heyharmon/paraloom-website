@@ -90,7 +90,7 @@ const pricingPlans = [
 </script>
 
 <template>
-  <section class="w-full bg-white px-4 md:px-8 py-20 lg:pb-[120px]">
+  <section class="w-full bg-page px-4 md:px-8 py-20 lg:pb-[120px]">
     <div class="w-full max-w-screen-2xl mx-auto">
       <!-- Header -->
       <div class="flex flex-col items-center gap-6 mb-[80px] md:mb-[120px]">
@@ -148,7 +148,7 @@ const pricingPlans = [
         <div
           v-for="plan in pricingPlans"
           :key="plan.id"
-          class="bg-slate-100 rounded-[40px] p-8 md:p-10 flex flex-col relative"
+          class="bg-card rounded-[40px] p-8 md:p-10 flex flex-col relative"
         >
           <!-- Most Popular Badge -->
           <div

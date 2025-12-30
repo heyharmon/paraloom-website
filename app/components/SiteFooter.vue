@@ -12,7 +12,7 @@ useParticleAnimation(canvasRef, {
 </script>
 
 <template>
-  <footer class="bg-neutral-900 text-white relative overflow-hidden">
+  <footer class="bg-inverse text-white relative overflow-hidden">
     <!-- Particle Animation Background -->
     <canvas
       ref="canvasRef"

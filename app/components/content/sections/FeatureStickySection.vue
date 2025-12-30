@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-[160px] px-8">
+  <section class="bg-page py-[160px] px-8">
     <div
       class="w-full max-w-screen-2xl mx-auto flex flex-row justify-between items-start gap-[120px]"
     >
@@ -39,7 +39,7 @@
       <!-- Right Column - Sticky Card -->
       <div class="flex-1 sticky top-[15vh]">
         <div
-          class="relative bg-slate-100 rounded-[32px] aspect-[4/3] min-h-[520px]"
+          class="relative bg-card rounded-[32px] aspect-[4/3] min-h-[520px]"
         >
           <div
             v-for="(feature, index) in features"

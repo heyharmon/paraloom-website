@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-20 lg:py-28 px-6">
+  <section class="bg-page py-20 lg:py-28 px-6">
     <!-- Section Header -->
     <div class="max-w-screen-xl mx-auto mb-12 lg:mb-16">
       <div class="flex flex-col items-center gap-4 text-center">

@@ -23,7 +23,7 @@ const setMode = (mode) => {
 <template>
   <div
     class="color-mode-toggle flex items-center gap-1 p-1 rounded-full"
-    :class="[variant === 'dark' ? 'bg-white/10' : 'bg-surface-secondary']"
+    :class="[variant === 'dark' ? 'bg-white/10' : 'bg-card']"
   >
     <button
       v-for="mode in modes"
@@ -35,7 +35,7 @@ const setMode = (mode) => {
         colorMode.preference === mode.value
           ? variant === 'dark'
             ? 'bg-white/20 text-white shadow-sm'
-            : 'bg-surface text-heading shadow-sm'
+            : 'bg-page text-heading shadow-sm'
           : variant === 'dark'
             ? 'text-white/50 hover:text-white/80'
             : 'text-muted hover:text-body',
