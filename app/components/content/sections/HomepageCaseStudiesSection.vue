@@ -9,7 +9,7 @@
             >—see what works for AI visibility</span
           >
         </h2>
-        <p class="text-lg text-slate-500 max-w-2xl">
+        <p class="text-lg text-subheadline max-w-2xl">
           See how financial institutions are using Paraloom to get recommended
           by AI assistants.
         </p>

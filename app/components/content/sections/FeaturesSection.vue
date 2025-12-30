@@ -36,11 +36,11 @@ const titleParts = computed(() => {
       <div class="flex flex-col items-center gap-6 mb-14">
         <h2 v-if="title" class="text-center">
           <span
-            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight"
             >{{ titleParts.first }}</span
           >
           <span
-            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-400 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-subheadline tracking-tight"
             >{{ titleParts.second }}</span
           >
         </h2>
@@ -73,10 +73,10 @@ const titleParts = computed(() => {
           </div>
 
           <div class="flex-1">
-            <h3 class="text-lg text-slate-900 mb-1.5">
+            <h3 class="text-lg mb-1.5">
               {{ item.title }}
             </h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
+            <p class="text-sm text-body leading-relaxed">
               {{ item.description }}
             </p>
           </div>

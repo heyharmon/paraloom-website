@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
 <template>
   <section class="w-full max-w-screen-2xl mx-auto px-2 pb-20 lg:pb-32 bg-white">
     <div class="flex justify-center mb-10 pt-4">
-      <p class="text-xs text-center font-sans text-slate-400">
+      <p class="text-xs text-center font-sans text-muted">
         {{ headline }}
       </p>
     </div>

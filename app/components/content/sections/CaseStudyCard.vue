@@ -16,7 +16,7 @@
       <!-- Read More Link -->
       <NuxtLink
         :to="study.link"
-        class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-slate-500 uppercase hover:text-slate-900 transition-colors"
+        class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-muted uppercase hover:text-slate-900 transition-colors"
       >
         <span>Read More</span>
         <svg
@@ -64,7 +64,7 @@
         >
           {{ formattedMetric }}
         </div>
-        <p class="text-xs font-medium uppercase tracking-wide text-slate-500">
+        <p class="text-xs font-medium uppercase tracking-wide text-muted">
           {{ study.resultLabel }}
         </p>
       </div>

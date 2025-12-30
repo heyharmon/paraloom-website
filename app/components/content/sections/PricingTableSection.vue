@@ -97,11 +97,11 @@ const pricingPlans = [
         <!-- Title -->
         <h2 class="text-center">
           <span
-            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight"
             >Get started for free</span
           >
           <span
-            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-slate-400 tracking-tight"
+            class="block text-3xl md:text-4xl lg:text-5xl font-medium text-subheadline tracking-tight"
             >and see the possibilities</span
           >
         </h2>
@@ -225,10 +225,10 @@ const pricingPlans = [
 
           <!-- Title & Subtitle -->
           <div class="mb-2">
-            <h3 class="text-xl font-medium text-slate-900">
+            <h3 class="text-xl font-medium">
               {{ plan.title }}
             </h3>
-            <p class="text-sm text-slate-600">
+            <p class="text-sm text-body">
               {{ plan.subtitle }}
             </p>
           </div>
@@ -238,7 +238,7 @@ const pricingPlans = [
             <span class="text-4xl font-medium text-slate-900">{{
               billingPeriod === "yearly" ? plan.yearlyPrice : plan.monthlyPrice
             }}</span>
-            <span class="text-base text-slate-600">{{
+            <span class="text-base text-body">{{
               billingPeriod === "yearly"
                 ? plan.yearlyPriceDescription
                 : plan.monthlyPriceDescription
@@ -275,7 +275,7 @@ const pricingPlans = [
               :key="index"
               class="flex items-center justify-between text-xs"
             >
-              <span class="text-slate-600">{{ feature.label }}:</span>
+              <span class="text-body">{{ feature.label }}:</span>
               <span class="text-slate-900">{{ feature.value }}</span>
             </li>
           </ul>

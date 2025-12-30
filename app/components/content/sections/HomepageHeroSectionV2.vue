@@ -100,7 +100,7 @@ onUnmounted(() => {
       class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center px-6 flex-1 gap-6 pt-20"
     >
       <h1
-        class="text-center text-slate-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
+        class="text-center text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
       >
         The next
         <span
@@ -122,7 +122,7 @@ onUnmounted(() => {
         </span>
       </h1>
 
-      <p class="max-w-2xl text-xl text-slate-400 text-center">
+      <p class="max-w-2xl text-xl text-subheadline text-center">
         {{ subheadline }}
       </p>
 

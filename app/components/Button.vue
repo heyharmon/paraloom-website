@@ -37,8 +37,8 @@ const buttonClasses = computed(() => {
     "text-base font-medium px-7 py-3.5 rounded-full transition-all inline-flex items-center justify-center";
 
   const variantClasses = {
-    primary: "bg-[#884dff] text-white hover:bg-[#6d3dcc]",
-    secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200",
+    primary: "btn-primary",
+    secondary: "btn-secondary",
   };
 
   const disabledClasses = props.disabled

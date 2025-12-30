@@ -2,6 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* ================================
+       Brand Color Scale
+       ================================ */
+    --brand-50: #f8f4ff;
+    --brand-100: #ede5ff;
+    --brand-200: #ddd0ff;
+    --brand-300: #c4a8ff;
+    --brand-400: #a67fff;
+    --brand-500: #884dff; /* Primary brand - buttons, accents */
+    --brand-600: #6d3dcc; /* Primary hover */
+    --brand-700: #5a2ea8;
+    --brand-800: #4a2589;
+    --brand-900: #2b0f52; /* Dark brand - headings, footer */
+    --brand-950: #1a0833;
+
+    /* ================================
+       Surface Colors (backgrounds)
+       ================================ */
+    --surface: #ffffff;
+    --surface-secondary: #f8fafc; /* slate-50 */
+    --surface-inverse: var(--brand-900);
+
+    /* ================================
+       Semantic Text Colors
+       ================================ */
+    --color-heading: var(--brand-900);
+    --color-subheadline: #94a3b8; /* slate-400 */
+    --color-body: #475569; /* slate-600 */
+    --color-muted: #64748b; /* slate-500 */
+
+    /* ================================
+       Button Tokens
+       ================================ */
+    --btn-primary-bg: var(--brand-500);
+    --btn-primary-bg-hover: var(--brand-600);
+    --btn-primary-text: #ffffff;
+
+    --btn-secondary-bg: #f1f5f9; /* slate-100 */
+    --btn-secondary-bg-hover: #e2e8f0; /* slate-200 */
+    --btn-secondary-text: var(--brand-900);
+  }
+
+  /* ================================
+     Dark Mode Overrides
+     ================================ */
+  .dark {
+    --surface: var(--brand-950);
+    --surface-secondary: var(--brand-900);
+    --surface-inverse: var(--brand-50);
+
+    --color-heading: var(--brand-50);
+    --color-subheadline: #94a3b8; /* slate-400 */
+    --color-body: #cbd5e1; /* slate-300 */
+    --color-muted: #94a3b8; /* slate-400 */
+
+    --btn-secondary-bg: var(--brand-800);
+    --btn-secondary-bg-hover: var(--brand-700);
+    --btn-secondary-text: var(--brand-50);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--btn-primary-bg-hover);
+  }
+
+  .btn-secondary {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--btn-secondary-bg-hover);
+  }
+}
+
+@layer utilities {
+  .text-subheadline {
+    color: var(--color-subheadline);
+  }
+
+  .text-body {
+    color: var(--color-body);
+  }
+
+  .text-muted {
+    color: var(--color-muted);
+  }
+}
+
 /* Base font configuration */
 html {
   font-family:

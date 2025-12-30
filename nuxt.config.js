@@ -72,6 +72,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: "en",
+        // class: "dark",
       },
       title: "Your Website - Professional Services",
       meta: [

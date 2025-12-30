@@ -336,7 +336,7 @@ const getDoubledCaseStudies = (caseStudies) => {
       >
         Real results from real FIs
       </h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-subheadline">
         See how banks and credit unions are improving their AI visibility with
         Paraloom
       </p>

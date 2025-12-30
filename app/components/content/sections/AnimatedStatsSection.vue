@@ -98,7 +98,7 @@ const getCardDelay = (index) => {
     <!-- Eyebrow Text -->
     <p
       :class="[
-        'text-slate-500 text-lg font-normal leading-relaxed text-center mb-16 max-w-2xl',
+        'text-muted text-lg font-normal leading-relaxed text-center mb-16 max-w-2xl',
         'transition-all duration-800 ease-out',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5',
       ]"
@@ -160,7 +160,7 @@ const getCardDelay = (index) => {
 
         <!-- Stat Label -->
         <p
-          class="text-slate-500 text-base font-normal leading-relaxed mt-4 tracking-wide"
+          class="text-muted text-base font-normal leading-relaxed mt-4 tracking-wide"
         >
           {{ stat.label }}
         </p>

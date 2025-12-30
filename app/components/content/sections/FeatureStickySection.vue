@@ -13,11 +13,11 @@
           class="min-h-[70vh] flex flex-col justify-center transition-opacity duration-300 ease-out"
         >
           <h3
-            class="text-[20px] font-medium leading-[28px] text-[#111827] mb-3"
+            class="text-[20px] font-medium leading-[28px] mb-3"
           >
             {{ feature.title }}
           </h3>
-          <p class="text-[16px] font-normal leading-[26px] text-[#9CA3AF] mb-8">
+          <p class="text-[16px] font-normal leading-[26px] text-muted mb-8">
             {{ feature.description }}
           </p>
           <div class="w-[240px] h-px bg-[#E5E7EB] mb-6"></div>
@@ -25,7 +25,7 @@
             <li
               v-for="(bullet, bulletIndex) in feature.bullets"
               :key="bulletIndex"
-              class="flex items-center gap-2 text-[14px] leading-[22px] text-[#6B7280]"
+              class="flex items-center gap-2 text-[14px] leading-[22px] text-body"
             >
               <span
                 class="w-1.5 h-1.5 rounded-full bg-[#6B7280] flex-shrink-0"

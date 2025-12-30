@@ -219,7 +219,7 @@ const resultsText = computed(() => {
       </div>
 
       <!-- Results Count -->
-      <p class="mb-6 text-sm text-slate-500">{{ resultsText }}</p>
+      <p class="mb-6 text-sm text-muted">{{ resultsText }}</p>
 
       <!-- Case Studies Grid -->
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -242,7 +242,7 @@ const resultsText = computed(() => {
         class="flex flex-col items-center justify-center py-16 text-center"
       >
         <p class="text-lg font-medium text-slate-900">No case studies found</p>
-        <p class="mt-2 text-sm text-slate-500">
+        <p class="mt-2 text-sm text-muted">
           Try adjusting your filters to see more results.
         </p>
         <button
